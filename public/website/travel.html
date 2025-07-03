@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel App Landing</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e3e6c4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+      min-width: 960px;
+    }
+
+    .screen {
+      width: 320px;
+      height: 640px;
+      background-color: white;
+      border-radius: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .screen img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .price {
+      color: #7eae32;
+      margin-bottom: 1rem;
+    }
+
+    .locations {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .locations img {
+      border-radius: 10px;
+    }
+
+    .trips h2 {
+      font-size: 1.4rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .rating {
+      color: #ffc107;
+      margin-bottom: 1rem;
+    }
+
+    .trip-options {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .trip-options img {
+      width: 140px;
+      height: 100px;
+    }
+
+    .flights h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .flight-info {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      padding: 0.8rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .flight-info span {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Screen 1: Hero -->
+    <div class="screen hero">
+      <h1>Get ready for your lifetime journey!</h1>
+      <p class="price">from $1246</p>
+      <div class="locations">
+        <img src="https://placehold.co/150x150?text=New+York" alt="New York">
+        <img src="https://placehold.co/150x150?text=London" alt="London">
+        <img src="https://placehold.co/150x150?text=Berlin" alt="Berlin">
+        <img src="https://placehold.co/150x150?text=Japan" alt="Japan">
+      </div>
+    </div>
+
+    <!-- Screen 2: Your Trips -->
+    <div class="screen trips">
+      <img src="https://placehold.co/300x180?text=Passport+Trip" alt="Trip">
+      <h2>New York</h2>
+      <div class="rating">★★★★☆</div>
+      <div class="trip-options">
+        <img src="https://placehold.co/140x100?text=Flights" alt="Flights">
+        <img src="https://placehold.co/140x100?text=Hotel" alt="Hotel">
+      </div>
+    </div>
+
+    <!-- Screen 3: Flights -->
+    <div class="screen flights">
+      <h2>MADRID - NEW YORK</h2>
+      <p>13.07.20</p>
+      <img src="https://placehold.co/300x180?text=Skyline" alt="Skyline">
+      <div class="flight-info">
+        <span><strong>Outbound:</strong> MAD 09:45 → NY JFK 12:35</span>
+        <span>Duration: 09:35 H</span>
+        <span>Class: Economy</span>
+        <span>Airline: Lorem Ipsum Airlines</span>
+        <span>Price: $190</span>
+      </div>
+      <div class="flight-info">
+        <span><strong>Return:</strong> NY JFK 19:20 → MAD 21:15</span>
+        <span>Duration: 09:30 H</span>
+        <span>Class: Economy</span>
+        <span>Non-Stop</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

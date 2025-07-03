@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlotta Armenise – Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: #fefefe;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      border-bottom: 1px solid #eee;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-left img {
+      height: 50px;
+    }
+
+    .nav-right a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #000;
+      font-size: 14px;
+    }
+
+    .nav-right a.active {
+      border-bottom: 2px solid #ffb6e6;
+      padding-bottom: 2px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 5%;
+      background-image: url('bg.jpg');
+      /* oppure URL esterno */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgb(0 0 0 / 3%);
+      /* overlay per migliorare leggibilità testo */
+      z-index: 0;
+      border-radius: inherit;
+    }
+
+    .hero h1,
+    .hero p,
+    .hero .cv-download {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 60px 5%;
+      background: #fff;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 24px;
+      color: #ffb6e6;
+      margin-bottom: 24px;
+    }
+
+    .description {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .projects .card {
+      background: linear-gradient(145deg, #ffffff, #f2f2f2);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .projects .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .projects .card h3 {
+      color: #ff85c1;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .projects .card h3 span {
+      display: block;
+      font-size: 13px;
+      font-weight: normal;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .projects .card p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .skills,
+    .experience {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .exp-header {
+  margin-bottom: 10px;
+}
+
+.exp-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ff85c1;
+}
+
+.exp-date {
+  display: inline-block;
+  font-size: 14px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.exp-company {
+  font-weight: bold;
+  color: #333;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+    .card {
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 250px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #ffb6e6;
+      margin-bottom: 10px;
+    }
+
+    .testimonials,
+    .contact {
+      padding: 60px 5%;
+      background: #f7f7f7;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .testimonials.visible,
+    .contact.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .testimonial {
+      max-width: 300px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .testimonial-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 350px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      color: #555;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: #ff85c1;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 20px 5%;
+      text-align: center;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .gallery-img {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.02);
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .social-icons a:hover {
+      color: #ff4fbf;
+      transform: scale(1.2);
+      transition: all 0.3s ease;
+    }
+
+    .cv-download {
+      margin-top: 20px;
+    }
+
+    .cv-download a {
+      background: #ffb6e6;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #ffb6e6;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 14px;
+      display: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 6px;
+      }
+
+      .nav-right.show {
+        display: flex;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-left">
+      <img src="logo carlotta.png" alt="Logo Carlotta" />
+    </div>
+    <button class="mobile-menu-button" id="menuToggle">☰</button>
+    <nav class="nav-right" id="mobileMenu">
+      <a href="#about" class="active">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="#dashboard" onclick="window.parent.postMessage('entra', '*')">Dashboard</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Carlotta Armenise</h1>
+    <p>Full Stack Developer | Esperta in soluzioni digitali moderne e scalabili, dal frontend al backend.</p>
+    <div class="cv-download">
+      <a href="CV CARLOTTA ARMENISE 2025.pdf" download>Download CV (PDF)</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-title">About Me</div>
+    <p class="description">Sono una Full Stack Developer con una forte vocazione all’innovazione. Ho esperienza nello
+      sviluppo di applicazioni complete, sia lato frontend che backend, inclusi progetti web, mobile e automazione dei
+      dati. Lavoro con linguaggi moderni come JavaScript e TypeScript, framework come React.js e React Native, e mi
+      occupo anche di backend in Python, JSP e database relazionali.</p>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-title">Skills</div>
+    <div class="skills">
+      <div class="card">
+        <h3>🎨 Frontend</h3>
+        <p>
+          🧱 HTML, CSS – Interfacce moderne e responsive<br><br>
+          ⚙️ JavaScript – Funzionalità dinamiche e interattive<br><br>
+          🧩 TypeScript – Tipizzazione per progetti scalabili<br><br>
+          ⚛️ React.js – Single Page Applications (SPA) performanti<br><br>
+          📱 React Native, Cordova – App mobile cross-platform
+        </p>
+      </div>
+      <div class="card">
+        <h3>🖥️ Backend</h3>
+        <p>
+          ☕ JSP – Pagine dinamiche Java (base/intermedio)<br><br>
+          🐍 Python – Scripting e sviluppo backend (base/intermedio)<br><br>
+          🕷️ Scrapy – Web scraping avanzato<br><br>
+          🗄️ MySQL – Database relazionali: progettazione e query
+        </p>
+      </div>
+      <div class="card">
+        <h3>🛠️ Tools & Extra</h3>
+        <p>
+          🔗 Node-RED – Automazione e integrazione tra servizi<br><br>
+          🧪 Postman, 🌀 Git – Testing API e controllo versioni<br><br>
+          🛒 WooCommerce, WordPress – E-commerce personalizzati<br><br>
+          📱 Java, Kotlin, Swift – Supporto mobile nativo (base)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="section-title">Photo Gallery</div>
+    <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+      <img src="1.jpg" alt="Gallery 1" class="gallery-img" />
+      <img src="2.jpg" alt="Gallery 2" class="gallery-img" />
+      <img src="3.jpg" alt="Gallery 3" class="gallery-img" />
+      <img src="4.jpg" alt="Gallery 4" class="gallery-img" />
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section-title">🚀 Progetti in Evidenza</div>
+    <div class="projects">
+      <div class="card">
+        <h3>🧠 AI Assistant System <span>(2022–Presente)</span></h3>
+        <p>Web UI per interagire con ChatGPT tramite documenti. Integrazione Node-RED per prompt dinamici e API custom.
+        </p>
+      </div>
+      <div class="card">
+        <h3>📱 Business Mobile App <span>(2021–Presente)</span></h3>
+        <p>App React Native con chat, GPS, notifiche, task management stile Trello e upload multimediali.</p>
+      </div>
+      <div class="card">
+        <h3>📊 CRM Dashboard <span>(2023–Presente)</span></h3>
+        <p>Frontend JSP/HTML per gestione HR, KPI, valutazioni e generazione report PDF.</p>
+      </div>
+      <div class="card">
+        <h3>🛠️ Custom CMS Creator <span>(2024–Presente)</span></h3>
+        <p>Personalizzazione CMS: input dinamici, editor e upload file. Tech: HTML/CSS/JS.</p>
+      </div>
+      <div class="card">
+        <h3>📦 Warehouse App <span>(2024–Presente)</span></h3>
+        <p>App Cordova per gestione magazzino con scanner Honeywell, funzionalità offline e DDT.</p>
+      </div>
+      <div class="card">
+        <h3>🔍 Order OCR WebApp <span>(2025–Presente)</span></h3>
+        <p>Dashboard con OCR prodotti, filtri dinamici e conferme ordini. HTML/CSS/JS/JSP.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="carousel">
+    <div class="section-title">My Work in Action</div>
+    <div class="carousel-container" style="position: relative; max-width: 700px; margin: 0 auto;">
+      <img src="5.jpg" class="carousel-slide" style="width: 100%; border-radius: 10px; display: block;" />
+      <button class="carousel-prev"
+        style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: #ffb6e6; color: white; border: none; padding: 10px; cursor: pointer;">❮</button>
+      <button class="carousel-next"
+        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: #ffb6e6; color: white; border: none; padding: 10px; cursor: pointer;">❯</button>
+    </div>
+  </section>
+
+  <section class="section " id="experience">
+    <div class="section-title">💼 Esperienza Lavorativa</div>
+    <div class="experience">
+      <div class="card">
+        <div class="exp-header">
+          <h3>🚀 Full Stack Web & Mobile Developer</h3>
+          <span class="exp-date">Novembre 2021 – Presente</span>
+          <p class="exp-company">Exentriq LTD</p>
+        </div>
+        <p>
+          Sviluppo completo di soluzioni web e mobile per clienti aziendali. Tecnologie utilizzate: HTML, CSS,
+          JavaScript, TypeScript, React.js, React Native, Cordova, JSP, Python, Scrapy, MySQL. Lavoro su dashboard, app
+          mobile, automazioni con Node-RED e API.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="exp-header">
+          <h3>🛍️ E-Commerce Manager</h3>
+          <span class="exp-date">2020 – Novembre 2021</span>
+          <p class="exp-company">Hessian & Quattrocchi</p>
+        </div>
+        <p>
+          Gestione dell’e-commerce aziendale basato su WooCommerce e WordPress. Personalizzazione dell’interfaccia
+          utente, ottimizzazione della user experience e supporto alla crescita digitale di un brand di moda.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="exp-header">
+          <h3>🧪 Junior Developer</h3>
+          <span class="exp-date">2019 – 2020</span>
+          <p class="exp-company">Progetti Personali</p>
+        </div>
+        <p>
+          Creazione di sistemi automatizzati di web scraping con Python e Scrapy. Approccio autonomo allo sviluppo,
+          esplorando tecnologie backend, data extraction e API.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- <section class="testimonials" id="testimonials">
+    <div class="section-title" style="text-align: center; color: #ffb6e6;">Testimonianze</div>
+    <div class="testimonial-container">
+      <div class="testimonial-card">
+        <p class="testimonial-text">“Carlotta ha una capacità straordinaria di adattarsi a nuove tecnologie...”</p>
+        <div class="testimonial-author">Collega – Exentriq</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">“Ha trasformato il nostro e-commerce in un'esperienza utente moderna...”</p>
+        <div class="testimonial-author">Supervisore – Hessian & Quattrocchi</div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="contact" id="contact">
+    <div class="section-title">Get In Touch</div>
+    <p class="description">Cerchi una sviluppatrice full stack per il tuo prossimo progetto? Scrivimi pure!</p>
+    <p class="description">Email: <a href="mailto:carlottaarmenise.job@gmail.com">carlottaarmenise.job@gmail.com</a></p>
+    <p class="description">Tel: <a href="tel:+393898727311">+39 389 872 7311</a></p>
+  </section>
+
+  <footer style="background: #fff0f7; padding: 40px 5%; text-align: center; border-top: 1px solid #ffe0ef;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="font-size: 18px; font-weight: bold; color: #ff4fbf; margin-bottom: 20px;">Stay Connected</div>
+      <div class="social-icons" style="margin-bottom: 24px;">
+        <a href="https://twitter.com" target="_blank">🐦</a>
+        <a href="https://linkedin.com" target="_blank">💼</a>
+        <a href="https://instagram.com" target="_blank">📷</a>
+      </div>
+      <div style="font-weight: 700; font-size: 16px; color: #ff85c1; margin-bottom: 8px;">Carlotta Armenise</div>
+      <div style="font-size: 13px; color: #888;">© 2025 All rights reserved – Made with ❤️</div>
+    </div>
+  </footer>
+
+  <button id="backToTop">↑</button>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      // Smooth scroll and active link toggle
+      $('a[href^="#"]').on('click', function (event) {
+        const targetId = $(this).attr('href');
+        const $target = $(targetId);
+
+        // Ignora link non esistenti
+        if (!$target.length) return;
+
+        event.preventDefault();
+
+        // Anima lo scroll con offset per header sticky
+        $('html, body').animate({
+          scrollTop: $target.offset().top - 60
+        }, 500);
+
+        $('.nav-right a').removeClass('active');
+        $('.nav-right a[href="' + targetId + '"]').addClass('active');
+
+        // Chiude menu mobile se aperto
+        if ($('#mobileMenu').hasClass('show')) {
+          $('#mobileMenu').removeClass('show');
+        }
+      });
+
+      // Aggiunge animazioni in scroll
+      function revealOnScroll() {
+        $('.section, .testimonials, .contact').each(function () {
+          const top = $(this).offset().top;
+          const bottomOfWindow = $(window).scrollTop() + $(window).height();
+
+          if (bottomOfWindow > top + 50) {
+            $(this).addClass('visible');
+          }
+        });
+      }
+
+      // Scroll spy
+      const allSections = $('section[id], .testimonials, .contact');
+
+      $(window).on('scroll', function () {
+        revealOnScroll();
+
+        const scrollPos = $(document).scrollTop() + 70;
+        allSections.each(function () {
+          const top = $(this).offset().top;
+          const bottom = top + $(this).outerHeight();
+          const id = $(this).attr('id');
+
+          if (scrollPos >= top && scrollPos < bottom && id) {
+            $('.nav-right a').removeClass('active');
+            $('.nav-right a[href="#' + id + '"]').addClass('active');
+          }
+        });
+
+        // Back to top
+        if ($(window).scrollTop() > 300) {
+          $('#backToTop').fadeIn();
+        } else {
+          $('#backToTop').fadeOut();
+        }
+      });
+
+      // Back to Top
+      $('#backToTop').on('click', function () {
+        $('html, body').animate({ scrollTop: 0 }, 600);
+      });
+
+      // Mobile menu toggle
+      $('#menuToggle').on('click', function () {
+        $('#mobileMenu').toggleClass('show');
+      });
+
+      // Carousel
+      const slides = [
+        '5.jpg',
+        '6.jpg',
+        '7.jpg'
+      ];
+      let currentSlide = 0;
+      const slideEl = $('.carousel-slide');
+
+      function showSlide(index) {
+        slideEl.fadeOut(200, function () {
+          slideEl.attr('src', slides[index]).fadeIn(200);
+        });
+      }
+
+      $('.carousel-next').on('click', function () {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+      });
+
+      $('.carousel-prev').on('click', function () {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+      });
+
+      // Init
+      revealOnScroll();
+      showSlide(currentSlide);
+    });
+  </script>
+
+</body>
+
+</html>

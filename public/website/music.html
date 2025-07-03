@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beginner's UI Design</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px;
+      background: #000;
+    }
+    .hero img {
+      width: 200px;
+      border-radius: 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin: 30px 0 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+    .hero .btn {
+      background: #9b5de5;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 5px;
+      display: inline-block;
+    }
+    .stats {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .stat {
+      margin: 0 40px;
+    }
+    .stat h2 {
+      font-size: 36px;
+      color: #9b5de5;
+    }
+    .courses {
+      background: #222;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .courses h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .course {
+      background: #111;
+      border: 1px solid #333;
+      width: 220px;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .course h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #9b5de5;
+    }
+    .newsletter {
+      background: #000;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .newsletter h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .newsletter form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .newsletter input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .newsletter button {
+      width: 100%;
+      background: #9b5de5;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #111;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YOUR LOGO</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Courses</a>
+      <a href="#">Blog</a>
+      <a href="#">Sign In</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="https://placehold.co/1000x400?text=MUSIC" alt="Hero Image" />
+    <h1>UI. Beginner's Edition 2022</h1>
+    <p>Start your journey to become a pro UI designer with our beginner-friendly courses and hands-on projects.</p>
+    <a href="#courses" class="btn">Let's Start</a>
+    <a href="#" class="btn">Read More</a>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <h2>150+</h2>
+      <p>Happy Students</p>
+    </div>
+    <div class="stat">
+      <h2>50+</h2>
+      <p>Certified Courses</p>
+    </div>
+    <div class="stat">
+      <h2>1000+</h2>
+      <p>Awards Received</p>
+    </div>
+  </section>
+
+  <section class="courses" id="courses">
+    <h2>Find Your Course</h2>
+    <div class="course-list">
+      <div class="course">
+        <h3>Course 01</h3>
+        <p>Intro to UI Design basics for beginners.</p>
+      </div>
+      <div class="course">
+        <h3>Course 02</h3>
+        <p>Advanced UI techniques and workflows.</p>
+      </div>
+      <div class="course">
+        <h3>Course 03</h3>
+        <p>Responsive design and accessibility best practices.</p>
+      </div>
+      <div class="course">
+        <h3>Course 04</h3>
+        <p>Prototyping and handoff for developers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form>
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Beginner's UI. All rights reserved.
+  </footer>
+</body>
+</html>

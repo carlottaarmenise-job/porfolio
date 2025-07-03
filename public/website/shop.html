@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop App Landing</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+      min-width: 960px;
+    }
+
+    .screen {
+      width: 320px;
+      height: 640px;
+      background-color: white;
+      border-radius: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screen .header {
+      background-color: #3a4c52;
+      color: white;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .screen .content {
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .search-bar {
+      background-color: #d0d8db;
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+    }
+
+    .categories, .new-items, .item-grid {
+      margin-top: 1rem;
+    }
+
+    .categories button {
+      background-color: #d0d8db;
+      border: none;
+      border-radius: 15px;
+      padding: 0.3rem 0.8rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.9rem;
+      margin: 0.5rem;
+    }
+
+    .item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .color-options {
+      display: flex;
+      gap: 10px;
+      margin: 1rem 0;
+    }
+
+    .color-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .add-cart {
+      background-color: #3a4c52;
+      color: white;
+      padding: 0.8rem;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Screen 1: Welcome / Categories -->
+    <div class="screen">
+      <div class="header">Welcome to shop</div>
+      <div class="content">
+        <div class="search-bar">🔍 Search</div>
+        <div class="categories">
+          <button>Kitchen</button>
+          <button>Bedroom</button>
+          <button>Hallway</button>
+          <button>Living Room</button>
+        </div>
+        <h4>Popular Categories</h4>
+        <div class="item-grid">
+          <div class="item"><img src="https://placehold.co/100x100?text=Chairs" alt=""><div>Chairs</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=Beds" alt=""><div>Beds</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=Tables" alt=""><div>Tables</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=Sofas" alt=""><div>Sofas</div></div>
+        </div>
+        <h4>New Items</h4>
+        <div class="item-grid">
+          <div class="item"><img src="https://placehold.co/100x100?text=$25" alt=""><div>Item's Name<br>$25</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=$30" alt=""><div>Item's Name<br>$30</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen 2: Product Detail -->
+    <div class="screen">
+      <img src="https://placehold.co/320x300?text=Chair" class="main-image" alt="Item Image">
+      <div class="content">
+        <h2>Item's Name</h2>
+        <div class="price">$30</div>
+        <p style="font-size: 0.9rem; color: #666;">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="color-options">
+          <div class="color-dot" style="background-color: #aacbd1;"></div>
+          <div class="color-dot" style="background-color: #f3d0da;"></div>
+          <div class="color-dot" style="background-color: #d8d8d8;"></div>
+        </div>
+        <div class="add-cart">+ Add to cart</div>
+      </div>
+    </div>
+
+    <!-- Screen 3: Category Listing -->
+    <div class="screen">
+      <div class="header">Chairs</div>
+      <div class="content">
+        <div class="item-grid">
+          <div class="item"><img src="https://placehold.co/100x100?text=$25" alt=""><div>Item's Name<br>$25</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=$30" alt=""><div>Item's Name<br>$30</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=$25" alt=""><div>Item's Name<br>$25</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=$30" alt=""><div>Item's Name<br>$30</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=$25" alt=""><div>Item's Name<br>$25</div></div>
+          <div class="item"><img src="https://placehold.co/100x100?text=$30" alt=""><div>Item's Name<br>$30</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

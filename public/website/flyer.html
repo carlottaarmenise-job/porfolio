@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Flyer Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .flyer {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: linear-gradient(to bottom right, #b620e0, #ff3c6e);
+      color: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .header {
+      text-align: right;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .header p {
+      font-size: 0.9rem;
+      margin: 0.2rem 0;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .features {
+      flex: 1 1 45%;
+    }
+
+    .features .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-icon {
+      background: white;
+      color: #ff3c6e;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .feature-text h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .feature-text p {
+      margin: 0.2rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .mockup {
+      flex: 1 1 45%;
+      background: white;
+      padding: 1rem;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .mockup img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="header">
+      <h1>Your Headline</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+    </div>
+
+    <div class="content">
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🏠</div>
+          <div class="feature-text">
+            <h3>Feature One</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-text">
+            <h3>Feature Two</h3>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <div class="feature-text">
+            <h3>Feature Three</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mockup">
+        <img src="https://placehold.co/300x600?text=App+Mockup" alt="App Screenshot">
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>@GLOBAL_IPSUM | @GLOBAL_IPSUM</p>
+      <p>Designed by Freepik</p>
+    </div>
+  </div>
+</body>
+</html>
