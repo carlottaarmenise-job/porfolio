@@ -1,35 +1,46 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router-dom";
 
-const API_KEY = "be2007598f9049ea8e5a891c62b0af29"; 
-
 export default function Blog() {
-  const [articles, setArticles] = useState([]);
   const [visiblePosts, setVisiblePosts] = useState(3);
-  const [loading, setLoading] = useState(true);
-
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryFilter = searchParams.get("category");
 
-  useEffect(() => {
-    setLoading(true);
-    const fetchNews = async () => {
-      try {
-        const categoryParam = categoryFilter || "technology";
-        const res = await fetch(
-          `https://newsapi.org/v2/top-headlines?category=${categoryParam}&language=en&pageSize=20&apiKey=${API_KEY}`
-        );
-        const data = await res.json();
-        setArticles(data.articles || []);
-      } catch (err) {
-        console.error("Errore nel recupero notizie:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchNews();
-  }, [categoryFilter]);
+  // Post statici hardcoded
+  const staticArticles = [
+  {
+    id: 1,
+    title: "Il mio primo post sul blog",
+    description: "In questo articolo racconto come ho iniziato il mio progetto portfolio...",
+    url: "#",
+    publishedAt: "2025-06-20",
+    category: "react",
+  },
+  {
+    id: 2,
+    title: "Come utilizzo React Bootstrap",
+    description: "Una panoramica su come React Bootstrap aiuta a costruire UI rapide e responsive.",
+    url: "#",
+    publishedAt: "2025-06-18",
+    category: "javascript",
+  },
+  {
+    id: 3,
+    title: "Routing con react-router-dom",
+    description: "In questa guida spiego come gestire la navigazione nel progetto con react-router-dom.",
+    url: "#",
+    publishedAt: "2025-06-15",
+    category: "design",
+  },
+  // aggiungi altri articoli se vuoi, ma questi 3 corrispondono ai tuoi post dettagliati
+];
+
+
+  // Applica filtro categoria se presente
+  const filteredArticles = categoryFilter
+    ? staticArticles.filter((article) => article.category === categoryFilter)
+    : staticArticles;
 
   const handleLoadMore = () => {
     setVisiblePosts((prev) => prev + 3);
@@ -40,40 +51,34 @@ export default function Blog() {
       <h1 className="mb-4">📰 Blog / News</h1>
       <Row>
         <Col md={8}>
-          {loading ? (
-            <Spinner animation="border" />
-          ) : (
-            <>
-              {articles.slice(0, visiblePosts).map((article, index) => (
-                <Card key={index} className="mb-3 shadow-sm">
-                  <Card.Body>
-                    <Card.Title>
-                      <a href={article.url} target="_blank" rel="noopener noreferrer">
-                        {article.title}
-                      </a>
-                    </Card.Title>
-                    <Card.Text>{article.description}</Card.Text>
-                    <small className="text-muted">{new Date(article.publishedAt).toLocaleDateString()}</small>
-                  </Card.Body>
-                </Card>
-              ))}
+          {filteredArticles.slice(0, visiblePosts).map((article, index) => (
+            <Card key={index} className="mb-3 shadow-sm">
+              <Card.Body>
+                <Card.Title>
+                  <Link to={`/app/blog/${article.id}`}>
+                    {article.title}
+                  </Link>
+                </Card.Title>
+                <Card.Text>{article.description}</Card.Text>
+                <small className="text-muted">{new Date(article.publishedAt).toLocaleDateString()}</small>
+              </Card.Body>
+            </Card>
+          ))}
 
-              {visiblePosts < articles.length && (
-                <Button variant="primary" onClick={handleLoadMore}>
-                  Carica più
-                </Button>
-              )}
+          {visiblePosts < filteredArticles.length && (
+            <Button variant="primary" onClick={handleLoadMore}>
+              Carica più
+            </Button>
+          )}
 
-              {categoryFilter && (
-                <Button
-                  variant="outline-secondary"
-                  className="mt-3"
-                  onClick={() => setSearchParams({})}
-                >
-                  Mostra tutti
-                </Button>
-              )}
-            </>
+          {categoryFilter && (
+            <Button
+              variant="outline-secondary"
+              className="mt-3"
+              onClick={() => setSearchParams({})}
+            >
+              Mostra tutti
+            </Button>
           )}
         </Col>
 
