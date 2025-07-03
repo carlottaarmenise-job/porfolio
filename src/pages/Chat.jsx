@@ -210,7 +210,7 @@ export default function Chat() {
             </Col>
             <Col className="text-end">
               <Button variant="outline-danger" size="sm" onClick={clearHistory}>
-                🗑 Cancella cronologia
+                🗑
               </Button>
             </Col>
           </Row>

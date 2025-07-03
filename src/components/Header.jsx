@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { Bell, Search, UserCircle } from 'lucide-react';
 import { Container, Form, InputGroup, Button, Navbar, Nav, Dropdown, Modal, ListGroup } from 'react-bootstrap';
 
-export default function Header() {
+export default function Header({ onToggleSidebar }) {
   const [showNotificationsModal, setShowNotificationsModal] = useState(false);
 
   const handleOpenNotifications = () => setShowNotificationsModal(true);
@@ -11,31 +11,89 @@ export default function Header() {
 
   return (
     <>
-      <Navbar bg="white" expand="lg" className="shadow-sm py-3">
+      <Navbar bg="white" expand="lg" className="shadow-sm py-3 px-3">
         <Container fluid className="d-flex justify-content-between align-items-center">
-          <Navbar.Brand className="fw-semibold text-dark fs-4">Dashboard</Navbar.Brand>
+          <Button
+            variant="outline-secondary"
+            className="d-lg-none me-2"
+            onClick={onToggleSidebar}
+          >
+            ☰
+          </Button>
 
-          <Nav className="d-flex align-items-center gap-3">
-            <Form className="d-flex position-relative">
-              <InputGroup>
-                <InputGroup.Text className="bg-white border-end-0">
-                  <Search className="text-muted" size={16} />
-                </InputGroup.Text>
-                <Form.Control
-                  type="text"
-                  placeholder="Cerca..."
-                  className="border-start-0"
-                />
-              </InputGroup>
-            </Form>
+          <Navbar.Brand className="fw-semibold text-dark fs-4">Porfolio</Navbar.Brand>
 
-            <Dropdown align="end">
+          <Nav className="align-items-center">
+            {/* Wrapper solo per mobile */}
+            <div className="d-flex d-lg-none gap-3 align-items-center">
+              {/* Notifiche */}
+              <Dropdown align="end">
+                <Dropdown.Toggle
+                  as={Button}
+                  variant="link"
+                  className="position-relative text-muted p-0"
+                  style={{ fontSize: 0 }}
+                >
+                  <Bell size={24} />
+                  <span
+                    className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style={{ fontSize: '0.6rem' }}
+                  >
+                    3
+                  </span>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu
+                  className="dropdown-menu-end shadow-sm"
+                  style={{
+                    position: 'absolute',
+                    zIndex: 99,
+                    top: '40px',
+                    right: 0,
+                    maxWidth: '90vw',
+                    minWidth: '250px',
+                  }}
+                >
+                  <Dropdown.Header>🔔 Notifiche</Dropdown.Header>
+                  <Dropdown.Item href="#notifica1">
+                    <small className="text-muted">1 min fa</small><br />
+                    Nuovo utente registrato
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#notifica2">
+                    <small className="text-muted">5 min fa</small><br />
+                    Backup completato
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#notifica3">
+                    <small className="text-muted">10 min fa</small><br />
+                    Nuovo messaggio ricevuto
+                  </Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item
+                    as="button"
+                    onClick={handleOpenNotifications}
+                    className="text-center text-primary w-100"
+                  >
+                    Vedi tutte le notifiche
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
+              {/* Profilo */}
+              <Link to="/app/profile">
+                <Button variant="link" className="text-muted p-0" style={{ fontSize: 0 }}>
+                  <UserCircle size={32} />
+                </Button>
+              </Link>
+            </div>
+
+            {/* Desktop: mostrali singolarmente con gap */}
+            <div className="d-none d-lg-flex gap-3 align-items-center">
+             <Dropdown align="end">
               <Dropdown.Toggle
                 as={Button}
                 variant="link"
                 className="position-relative text-muted p-0"
-                style={{ fontSize: 0 }}
-              >
+                style={{ fontSize: 0 }}>
                 <Bell size={24} />
                 <span
                   className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -45,7 +103,7 @@ export default function Header() {
                 </span>
               </Dropdown.Toggle>
 
-              <Dropdown.Menu className="dropdown-menu-end shadow-sm">
+              <Dropdown.Menu className="dropdown-menu-end shadow-sm" style={{position: 'absolute', zIndex:99}}>
                 <Dropdown.Header>🔔 Notifiche</Dropdown.Header>
                 <Dropdown.Item href="#notifica1">
                   <small className="text-muted">1 min fa</small><br />
@@ -69,13 +127,14 @@ export default function Header() {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-
-            <Link to="/app/profile">
-              <Button variant="link" className="text-muted p-0" style={{ fontSize: 0 }}>
-                <UserCircle size={32} />
-              </Button>
-            </Link>
+              <Link to="/app/profile">
+                <Button variant="link" className="text-muted p-0" style={{ fontSize: 0 }}>
+                  <UserCircle size={32} />
+                </Button>
+              </Link>
+            </div>
           </Nav>
+
         </Container>
       </Navbar>
 

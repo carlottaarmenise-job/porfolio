@@ -38,7 +38,7 @@ const navGroups = [
   },
 ]
 
-export default function Sidebar() {
+export default function Sidebar({ onClose }) {
   const { pathname } = useLocation()
   const [openKeys, setOpenKeys] = useState([])
 
@@ -61,11 +61,15 @@ export default function Sidebar() {
 
   return (
     <aside
-      style={{ width: '16rem', height: '100vh', flexShrink: 0 }}
-      className="bg-dark text-white p-3 d-flex flex-column border-end border-secondary overflow-auto"
+      style={{ width: '16rem' }}
+      className="text-white d-flex flex-column bg-dark p-3 h-100 overflow-auto"
     >
-      <h5 className="fw-bold text-light mb-3 px-1">📋 Dashboard</h5>
+      {/* Chiudi button solo su mobile */}
+      <div className="d-lg-none mb-3 text-end">
+        <button className="btn btn-sm btn-outline-light" onClick={onClose}>✕ Chiudi</button>
+      </div>
 
+      <h5 className="fw-bold text-light mb-3 px-1">📋 Dashboard</h5>
       <Accordion activeKey={openKeys} alwaysOpen>
         {navGroups.map((group, idx) => {
           const eventKey = String(idx)
@@ -88,6 +92,9 @@ export default function Sidebar() {
                 <Nav className="flex-column">
                   {group.items.map((item) => (
                     <Nav.Link
+                      onClick={() => {
+                        if (onClose) onClose();
+                      }}
                       as={Link}
                       to={item.path}
                       key={item.path}
@@ -125,5 +132,5 @@ export default function Sidebar() {
         </Nav.Link>
       </div>
     </aside>
-  )
+  );
 }

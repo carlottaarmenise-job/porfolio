@@ -97,14 +97,14 @@ export default function InvoicesPage() {
                                                     className="me-2"
                                                     onClick={() => handleOpenModal(inv)}
                                                 >
-                                                    ✏️ Modifica
+                                                    ✏️
                                                 </Button>
                                                 <Button
                                                     variant="outline-danger"
                                                     size="sm"
                                                     onClick={() => handleDelete(inv.id)}
                                                 >
-                                                    🗑️ Elimina
+                                                    🗑️
                                                 </Button>
                                             </td>
                                         </tr>

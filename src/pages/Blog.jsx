@@ -33,7 +33,7 @@ export default function Blog() {
     publishedAt: "2025-06-15",
     category: "design",
   },
-  // aggiungi altri articoli se vuoi, ma questi 3 corrispondono ai tuoi post dettagliati
+ 
 ];
 
 
@@ -88,9 +88,9 @@ export default function Blog() {
               <Card.Title>Categorie News</Card.Title>
               <ul style={{ listStyle: "none", paddingLeft: 0 }}>
                 <li><Link to="/app/blog">Tutte</Link></li>
-                <li><Link to="/app/blog?category=technology">Technology</Link></li>
-                <li><Link to="/app/blog?category=health">Health</Link></li>
-                <li><Link to="/app/blog?category=entertainment">Entertainment</Link></li>
+                <li><Link to="/app/blog?category=react">React</Link></li>
+                <li><Link to="/app/blog?category=javascript">Javascript</Link></li>
+                <li><Link to="/app/blog?category=design">Design</Link></li>
               </ul>
             </Card.Body>
           </Card>

@@ -2,7 +2,8 @@ import { useRef, useState, useEffect } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 
 export default function CanvasEditor() {
-  const canvasRef = useRef(null);
+   const canvasRef = useRef(null)
+  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 })
   const [elements, setElements] = useState([]);
   const [selectedTool, setSelectedTool] = useState("rectangle");
   const [selectedColor, setSelectedColor] = useState("#007bff");
@@ -177,6 +178,20 @@ export default function CanvasEditor() {
     link.click();
   };
 
+   useEffect(() => {
+    const updateCanvasSize = () => {
+      const padding = 32 // ad esempio, padding del container
+      setCanvasSize({
+        width: window.innerWidth - padding,
+        height: window.innerHeight * 0.6, // 60% dell'altezza dello schermo
+      })
+    }
+
+    updateCanvasSize()
+    window.addEventListener('resize', updateCanvasSize)
+
+    return () => window.removeEventListener('resize', updateCanvasSize)
+  }, [])
   return (
     <Container fluid className="py-4">
       <h1 className="mb-3">🧱 Figma Lite</h1>
@@ -233,14 +248,20 @@ export default function CanvasEditor() {
         </Col>
       </Row>
       <canvas
-        ref={canvasRef}
-        width={900}
-        height={600}
-        style={{ border: "2px solid #ccc", background: "#fff" }}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-      />
+      ref={canvasRef}
+      width={canvasSize.width}
+      height={canvasSize.height}
+      style={{
+        width: '100%',
+        maxWidth: '100%',
+        height: 'auto',
+        border: '2px solid #ccc',
+        background: '#fff',
+      }}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
+    />
     </Container>
   );
 }

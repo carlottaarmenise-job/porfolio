@@ -60,14 +60,14 @@ export default function Products() {
                             className="me-2"
                             onClick={() => handleEdit(product.id)}
                           >
-                            ✏️ Modifica
+                            ✏️
                           </Button>
                           <Button
                             variant="outline-danger"
                             size="sm"
                             onClick={() => handleDelete(product.id)}
                           >
-                            🗑️ Elimina
+                            🗑️
                           </Button>
                         </td>
                       </tr>
