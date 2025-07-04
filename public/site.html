@@ -166,29 +166,29 @@
     }
 
     .exp-header {
-  margin-bottom: 10px;
-}
+      margin-bottom: 10px;
+    }
 
-.exp-header h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #ff85c1;
-}
+    .exp-header h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #ff85c1;
+    }
 
-.exp-date {
-  display: inline-block;
-  font-size: 14px;
-  color: #999;
-  margin-top: 4px;
-}
+    .exp-date {
+      display: inline-block;
+      font-size: 14px;
+      color: #999;
+      margin-top: 4px;
+    }
 
-.exp-company {
-  font-weight: bold;
-  color: #333;
-  margin-top: 2px;
-  margin-bottom: 10px;
-  font-size: 15px;
-}
+    .exp-company {
+      font-weight: bold;
+      color: #333;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
 
     .card {
       background: #fafafa;
@@ -357,6 +357,77 @@
         display: block;
       }
     }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: 20px auto;
+    }
+
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .app-demo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .github-button {
+      background: #ffb6e6;
+      color: white;
+      text-decoration: none;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    .github-button:hover {
+      background: #ff85c1;
+    }
+
+    .app-demo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .text-container h3 {
+      font-size: 24px;
+      color: #ff4fbf;
+      margin-bottom: 16px;
+    }
+
+    .text-container p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
   </style>
 </head>
 
@@ -384,26 +455,34 @@
     </div>
   </section>
 
- <section class="section" id="about">
-  <div class="section-title">About Me</div>
-  <p class="description">
-    Sono una Full Stack Developer con una forte vocazione all’innovazione e alla crescita continua. Sviluppo soluzioni digitali complete,
-    occupandomi sia del frontend che del backend, con particolare attenzione all’esperienza utente, alla qualità del codice e alla scalabilità dei progetti.
-    Ho esperienza nello sviluppo di applicazioni web, mobile e nell’automazione dei dati, seguendo tutte le fasi del ciclo di vita del software.
-  </p>
-  <p class="description">
-    Utilizzo quotidianamente tecnologie moderne come JavaScript e TypeScript, insieme a framework come React.js, React Native e Cordova per lo sviluppo
-    di interfacce web e mobile performanti. Sul lato backend, ho esperienza con database SQL (MySQL e simili) e strumenti di automazione come Node-RED,
-    che utilizzo per integrare servizi e flussi complessi. Ho anche avuto occasione di lavorare con Python e Scrapy, pur non essendo questi il mio focus principale.
-  </p>
-  <p class="description">
-    Sono in grado di implementare pacchetti esterni, utilizzare framework CSS come Tailwind e Bootstrap, e adottare le migliori pratiche di sviluppo in ambienti Agile.
-    Ho una mentalità orientata al problem solving e una forte capacità di adattamento a nuovi contesti e tecnologie.
-  </p>
-  <p class="description">
-    Cerco costantemente opportunità per crescere, confrontarmi e contribuire a progetti innovativi in cui la tecnologia rappresenti un vero valore aggiunto.
-  </p>
-</section>
+  <section class="section" id="about">
+    <div class="section-title">About Me</div>
+    <p class="description">
+      Sono una Full Stack Developer con una forte vocazione all’innovazione e alla crescita continua. Sviluppo soluzioni
+      digitali complete,
+      occupandomi sia del frontend che del backend, con particolare attenzione all’esperienza utente, alla qualità del
+      codice e alla scalabilità dei progetti.
+      Ho esperienza nello sviluppo di applicazioni web, mobile e nell’automazione dei dati, seguendo tutte le fasi del
+      ciclo di vita del software.
+    </p>
+    <p class="description">
+      Utilizzo quotidianamente tecnologie moderne come JavaScript e TypeScript, insieme a framework come React.js, React
+      Native e Cordova per lo sviluppo
+      di interfacce web e mobile performanti. Sul lato backend, ho esperienza con database SQL (MySQL e simili) e
+      strumenti di automazione come Node-RED,
+      che utilizzo per integrare servizi e flussi complessi. Ho anche avuto occasione di lavorare con Python e Scrapy,
+      pur non essendo questi il mio focus principale.
+    </p>
+    <p class="description">
+      Sono in grado di implementare pacchetti esterni, utilizzare framework CSS come Tailwind e Bootstrap, e adottare le
+      migliori pratiche di sviluppo in ambienti Agile.
+      Ho una mentalità orientata al problem solving e una forte capacità di adattamento a nuovi contesti e tecnologie.
+    </p>
+    <p class="description">
+      Cerco costantemente opportunità per crescere, confrontarmi e contribuire a progetti innovativi in cui la
+      tecnologia rappresenti un vero valore aggiunto.
+    </p>
+  </section>
 
 
   <section class="section" id="skills">
@@ -535,6 +614,39 @@
     </div>
   </section>
 
+  <section class="section" id="app-demo" style="padding: 60px 5%; background-color: #fff8fc;">
+    <div class="app-demo-header">
+      <div class="section-title">📱 App Demo: HabitFlow</div>
+      <a href="https://github.com/carlottaarmenise-job/HabitFlowApp" target="_blank" class="github-button">
+        Vai al progetto GitHub
+      </a>
+    </div>
+
+    <div class="app-demo-container">
+      <div class="video-container">
+        <video autoplay muted loop playsinline>
+          <source src="HabitFlow.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="text-container">
+        <h3>HabitFlow</h3>
+        <p>
+         HabitFlow è un'app mobile per il monitoraggio delle abitudini quotidiane. Aiuta gli utenti a creare, completare e visualizzare le loro abitudini in modo semplice ed efficace. Progettata per essere intuitiva, fluida e coerente con le abitudini reali dell'utente.
+        </p>
+        <p>
+          ✅ Aggiunta, modifica e cancellazione di abitudini<br>
+          🔄 Tracciamento dei completamenti giornalieri<br>
+          📊 Statistiche utente nel profilo<br>
+          📆 Cronologia completamenti<br>
+          💡 Sezione di ispirazione con consigli sulle abitudini<br>
+          📤 Esportazione dei dati<br>
+          🌓 Tema chiaro (dark mode disabilitata)<br>
+          🔐 Architettura scalabile con Context API e AsyncStorage
+        </p>
+      </div>
+    </div>
+  </section>
 
 
   <!-- <section class="testimonials" id="testimonials">
