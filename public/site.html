@@ -632,7 +632,9 @@
       <div class="text-container">
         <h3>HabitFlow</h3>
         <p>
-         HabitFlow è un'app mobile per il monitoraggio delle abitudini quotidiane. Aiuta gli utenti a creare, completare e visualizzare le loro abitudini in modo semplice ed efficace. Progettata per essere intuitiva, fluida e coerente con le abitudini reali dell'utente.
+          HabitFlow è un'app mobile per il monitoraggio delle abitudini quotidiane. Aiuta gli utenti a creare,
+          completare e visualizzare le loro abitudini in modo semplice ed efficace. Progettata per essere intuitiva,
+          fluida e coerente con le abitudini reali dell'utente.
         </p>
         <p>
           ✅ Aggiunta, modifica e cancellazione di abitudini<br>
@@ -687,17 +689,14 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(function () {
-      // Smooth scroll and active link toggle
       $('a[href^="#"]').on('click', function (event) {
         const targetId = $(this).attr('href');
         const $target = $(targetId);
 
-        // Ignora link non esistenti
         if (!$target.length) return;
 
         event.preventDefault();
 
-        // Anima lo scroll con offset per header sticky
         $('html, body').animate({
           scrollTop: $target.offset().top - 60
         }, 500);
@@ -705,13 +704,11 @@
         $('.nav-right a').removeClass('active');
         $('.nav-right a[href="' + targetId + '"]').addClass('active');
 
-        // Chiude menu mobile se aperto
         if ($('#mobileMenu').hasClass('show')) {
           $('#mobileMenu').removeClass('show');
         }
       });
 
-      // Aggiunge animazioni in scroll
       function revealOnScroll() {
         $('.section, .testimonials, .contact').each(function () {
           const top = $(this).offset().top;
@@ -723,23 +720,8 @@
         });
       }
 
-      // Scroll spy
-      const allSections = $('section[id], .testimonials, .contact');
-
       $(window).on('scroll', function () {
         revealOnScroll();
-
-        const scrollPos = $(document).scrollTop() + 70;
-        allSections.each(function () {
-          const top = $(this).offset().top;
-          const bottom = top + $(this).outerHeight();
-          const id = $(this).attr('id');
-
-          if (scrollPos >= top && scrollPos < bottom && id) {
-            $('.nav-right a').removeClass('active');
-            $('.nav-right a[href="#' + id + '"]').addClass('active');
-          }
-        });
 
         // Back to top
         if ($(window).scrollTop() > 300) {
@@ -749,17 +731,14 @@
         }
       });
 
-      // Back to Top
       $('#backToTop').on('click', function () {
         $('html, body').animate({ scrollTop: 0 }, 600);
       });
 
-      // Mobile menu toggle
       $('#menuToggle').on('click', function () {
         $('#mobileMenu').toggleClass('show');
       });
 
-      // Carousel
       const slides = [
         '5.jpg',
         '6.jpg',
@@ -784,7 +763,6 @@
         showSlide(currentSlide);
       });
 
-      // Init
       revealOnScroll();
       showSlide(currentSlide);
     });
