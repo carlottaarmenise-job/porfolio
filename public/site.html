@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carlotta Armenise – Full Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -17,6 +17,7 @@
     body {
       background: #fefefe;
       color: #333;
+      overflow-x: hidden;
     }
 
     header {
@@ -29,46 +30,73 @@
       align-items: center;
       padding: 16px 5%;
       border-bottom: 1px solid #eee;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
     }
 
     .nav-left img {
       height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-left img:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
     .nav-right a {
-      margin-left: 20px;
       text-decoration: none;
-      color: #000;
+      color: #333;
       font-size: 14px;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-right a:hover {
+      color: #ff85c1;
     }
 
     .nav-right a.active {
-      border-bottom: 2px solid #ffb6e6;
-      padding-bottom: 2px;
+      color: #ff85c1;
+    }
+
+    .nav-right a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #ffb6e6;
     }
 
     .hero {
       text-align: center;
-      padding: 100px 5%;
+      padding: 120px 5% 80px;
       background-image: url('bg.jpg');
-      /* oppure URL esterno */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      color: white;
-      animation: fadeIn 2s ease-in-out;
       position: relative;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgb(0 0 0 / 3%);
-      /* overlay per migliorare leggibilità testo */
+      background: rgba(255, 255, 255, 0.85);
       z-index: 0;
-      border-radius: inherit;
     }
 
     .hero h1,
@@ -79,20 +107,57 @@
     }
 
     .hero h1 {
-      font-size: 36px;
+      font-size: 48px;
       color: #333;
       margin-bottom: 20px;
+      font-weight: 700;
+      animation: fadeInUp 0.8s ease;
     }
 
     .hero p {
       font-size: 18px;
       color: #666;
-      max-width: 600px;
-      margin: 0 auto;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    .cv-download {
+      animation: fadeInUp 0.8s ease 0.4s backwards;
+    }
+
+    .cv-download a {
+      background: linear-gradient(135deg, #ffb6e6, #ff85c1);
+      color: white;
+      padding: 14px 32px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 133, 193, 0.3);
+    }
+
+    .cv-download a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 133, 193, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .section {
-      padding: 60px 5%;
+      padding: 80px 5%;
       background: #fff;
       opacity: 0;
       transform: translateY(30px);
@@ -106,256 +171,337 @@
 
     .section-title {
       font-weight: 700;
-      font-size: 24px;
-      color: #ffb6e6;
-      margin-bottom: 24px;
+      font-size: 32px;
+      color: #ff85c1;
+      margin-bottom: 32px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, #ffb6e6, transparent);
     }
 
     .description {
       font-size: 16px;
       color: #555;
       margin-bottom: 24px;
-      line-height: 1.6;
+      line-height: 1.8;
+    }
+
+    .about-container {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-image {
+      flex-shrink: 0;
+    }
+
+    .profile-img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 10px 40px rgba(255, 133, 193, 0.3);
+      border: 5px solid #fff;
+      transition: all 0.4s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 50px rgba(255, 133, 193, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .profile-img {
+        width: 220px;
+        height: 220px;
+      }
     }
 
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
 
     .projects .card {
-      background: linear-gradient(145deg, #ffffff, #f2f2f2);
-      border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      background: linear-gradient(145deg, #ffffff, #f8f8f8);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
       transition: all 0.3s ease;
       position: relative;
+      border: 1px solid #f0f0f0;
     }
 
     .projects .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(255, 133, 193, 0.15);
+      border-color: #ffb6e6;
     }
 
     .projects .card h3 {
       color: #ff85c1;
-      font-size: 18px;
-      margin-bottom: 10px;
+      font-size: 19px;
+      margin-bottom: 12px;
+      font-weight: 600;
     }
 
     .projects .card h3 span {
       display: block;
       font-size: 13px;
-      font-weight: normal;
-      color: #888;
-      margin-top: 4px;
+      font-weight: 400;
+      color: #999;
+      margin-top: 6px;
     }
 
     .projects .card p {
       font-size: 15px;
-      color: #444;
-      line-height: 1.6;
+      color: #555;
+      line-height: 1.7;
     }
 
     .skills,
     .experience {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .exp-header {
-      margin-bottom: 10px;
-    }
-
-    .exp-header h3 {
-      margin: 0;
-      font-size: 18px;
-      color: #ff85c1;
-    }
-
-    .exp-date {
-      display: inline-block;
-      font-size: 14px;
-      color: #999;
-      margin-top: 4px;
-    }
-
-    .exp-company {
-      font-weight: bold;
-      color: #333;
-      margin-top: 2px;
-      margin-bottom: 10px;
-      font-size: 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
 
     .card {
       background: #fafafa;
-      padding: 20px;
-      border-radius: 10px;
-      flex: 1;
-      min-width: 250px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-color: #ffb6e6;
     }
 
     .card h3 {
-      color: #ffb6e6;
-      margin-bottom: 10px;
-    }
-
-    .testimonials,
-    .contact {
-      padding: 60px 5%;
-      background: #f7f7f7;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .testimonials.visible,
-    .contact.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .testimonial {
-      max-width: 300px;
-      font-size: 14px;
-      color: #444;
-    }
-
-    .testimonial-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    .testimonial-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      max-width: 350px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .testimonial-text {
-      font-size: 16px;
-      color: #555;
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .testimonial-author {
-      font-weight: 700;
       color: #ff85c1;
-      text-align: right;
-      font-size: 14px;
+      margin-bottom: 16px;
+      font-size: 19px;
+      font-weight: 600;
     }
 
-    footer {
-      padding: 20px 5%;
-      text-align: center;
+    .exp-header h3 {
+      margin: 0 0 8px 0;
+      font-size: 19px;
+      color: #ff85c1;
+    }
+
+    .exp-date {
+      display: block;
       font-size: 14px;
-      background: #fff;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .exp-company {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
     }
 
     .gallery-img {
-      max-width: 300px;
       width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       object-fit: cover;
       transition: transform 0.3s ease;
     }
 
     .gallery-img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 40px auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-slide {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 182, 230, 0.9);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: #ff85c1;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-prev {
+      left: 20px;
+    }
+
+    .carousel-next {
+      right: 20px;
+    }
+
+    .contact {
+      padding: 80px 5%;
+      background: linear-gradient(135deg, #fff8fc, #ffe0ef);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .contact.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background: #fff0f7;
+      padding: 50px 5%;
+      text-align: center;
+      border-top: 1px solid #ffe0ef;
+    }
+
+    .social-icons {
+      margin: 24px 0;
     }
 
     .social-icons a {
-      margin: 0 8px;
+      margin: 0 12px;
       text-decoration: none;
       color: #333;
-      font-size: 18px;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
 
     .social-icons a:hover {
       color: #ff4fbf;
       transform: scale(1.2);
-      transition: all 0.3s ease;
-    }
-
-    .cv-download {
-      margin-top: 20px;
-    }
-
-    .cv-download a {
-      background: #ffb6e6;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
     }
 
     #backToTop {
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: #ffb6e6;
+      background: linear-gradient(135deg, #ffb6e6, #ff85c1);
       color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 20px;
       display: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(255, 133, 193, 0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    #backToTop:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 133, 193, 0.4);
     }
 
     .mobile-menu-button {
       display: none;
       background: none;
       border: none;
-      font-size: 24px;
+      font-size: 28px;
       cursor: pointer;
+      color: #333;
     }
 
-    @media (max-width: 768px) {
-      .nav-right {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        right: 5%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        border-radius: 6px;
-      }
+    .app-demo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
 
-      .nav-right.show {
-        display: flex;
-      }
+    .github-button {
+      background: linear-gradient(135deg, #ffb6e6, #ff85c1);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 133, 193, 0.3);
+    }
 
-      .mobile-menu-button {
-        display: block;
-      }
+    .github-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 133, 193, 0.4);
+    }
+
+    .app-demo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
     }
 
     .video-container {
@@ -378,75 +524,75 @@
       border: 0;
     }
 
-    .app-demo-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .github-button {
-      background: #ffb6e6;
-      color: white;
-      text-decoration: none;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: background 0.3s ease;
-    }
-
-    .github-button:hover {
-      background: #ff85c1;
-    }
-
-    .app-demo-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .text-container {
-      flex: 1;
-      min-width: 300px;
-      max-width: 500px;
-    }
-
-    .text-container h3 {
-      font-size: 24px;
-      color: #ff4fbf;
-      margin-bottom: 16px;
-    }
-
-    .text-container p {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
-    }
-
+    .text-container,
     .text-container-right {
       flex: 1;
       min-width: 300px;
-      max-width: 500px;
+      max-width: 550px;
+    }
+
+    .text-container h3,
+    .text-container-right h3 {
+      font-size: 28px;
+      color: #ff4fbf;
+      margin-bottom: 20px;
+      font-weight: 700;
     }
 
     .text-container-right h3 {
       text-align: right;
-      font-size: 24px;
-      color: #ff4fbf;
+    }
+
+    .text-container p,
+    .text-container-right p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.8;
       margin-bottom: 16px;
     }
 
     .text-container-right p {
       text-align: right;
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .nav-right {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        border-radius: 12px;
+        gap: 15px;
+      }
+
+      .nav-right.show {
+        display: flex;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .text-container-right h3,
+      .text-container-right p {
+        text-align: left;
+      }
+
+      .carousel-slide {
+        height: 350px;
+      }
     }
   </style>
 </head>
@@ -477,33 +623,36 @@
 
   <section class="section" id="about">
     <div class="section-title">About Me</div>
-    <p class="description">
-      Sono una Full Stack Developer con una forte vocazione all’innovazione e alla crescita continua. Sviluppo soluzioni
-      digitali complete,
-      occupandomi sia del frontend che del backend, con particolare attenzione all’esperienza utente, alla qualità del
-      codice e alla scalabilità dei progetti.
-      Ho esperienza nello sviluppo di applicazioni web, mobile e nell’automazione dei dati, seguendo tutte le fasi del
-      ciclo di vita del software.
-    </p>
-    <p class="description">
-      Utilizzo quotidianamente tecnologie moderne come JavaScript e TypeScript, insieme a framework come React.js, React
-      Native e Cordova per lo sviluppo
-      di interfacce web e mobile performanti. Sul lato backend, ho esperienza con database SQL (MySQL e simili) e
-      strumenti di automazione come Node-RED,
-      che utilizzo per integrare servizi e flussi complessi. Ho anche avuto occasione di lavorare con Python e Scrapy,
-      pur non essendo questi il mio focus principale.
-    </p>
-    <p class="description">
-      Sono in grado di implementare pacchetti esterni, utilizzare framework CSS come Tailwind e Bootstrap, e adottare le
-      migliori pratiche di sviluppo in ambienti Agile.
-      Ho una mentalità orientata al problem solving e una forte capacità di adattamento a nuovi contesti e tecnologie.
-    </p>
-    <p class="description">
-      Cerco costantemente opportunità per crescere, confrontarmi e contribuire a progetti innovativi in cui la
-      tecnologia rappresenti un vero valore aggiunto.
-    </p>
+    <div class="about-container">
+      <div class="about-image">
+        <img src="profile.png" alt="Carlotta Armenise" class="profile-img" />
+      </div>
+      <div class="about-text">
+        <p class="description">
+          Sono una Full Stack Developer con una forte vocazione all'innovazione e alla crescita continua. Sviluppo soluzioni
+          digitali complete, occupandomi sia del frontend che del backend, con particolare attenzione all'esperienza utente, alla qualità del
+          codice e alla scalabilità dei progetti.
+          Ho esperienza nello sviluppo di applicazioni web, mobile e nell'automazione dei dati, seguendo tutte le fasi del
+          ciclo di vita del software.
+        </p>
+        <p class="description">
+          Utilizzo quotidianamente tecnologie moderne come JavaScript e TypeScript, insieme a framework come React.js, React
+          Native e Cordova per lo sviluppo di interfacce web e mobile performanti. Sul lato backend, ho esperienza con database SQL (MySQL e simili) e
+          strumenti di automazione come Node-RED, che utilizzo per integrare servizi e flussi complessi. Ho anche avuto occasione di lavorare con Python e Scrapy,
+          pur non essendo questi il mio focus principale.
+        </p>
+        <p class="description">
+          Sono in grado di implementare pacchetti esterni, utilizzare framework CSS come Tailwind e Bootstrap, e adottare le
+          migliori pratiche di sviluppo in ambienti Agile.
+          Ho una mentalità orientata al problem solving e una forte capacità di adattamento a nuovi contesti e tecnologie.
+        </p>
+        <p class="description">
+          Cerco costantemente opportunità per crescere, confrontarmi e contribuire a progetti innovativi in cui la
+          tecnologia rappresenti un vero valore aggiunto.
+        </p>
+      </div>
+    </div>
   </section>
-
 
   <section class="section" id="skills">
     <div class="section-title">Skills</div>
@@ -541,7 +690,7 @@
 
   <section class="section" id="gallery">
     <div class="section-title">Photo Gallery</div>
-    <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+    <div class="gallery">
       <img src="1.jpg" alt="Gallery 1" class="gallery-img" />
       <img src="2.jpg" alt="Gallery 2" class="gallery-img" />
       <img src="3.jpg" alt="Gallery 3" class="gallery-img" />
@@ -554,8 +703,7 @@
     <div class="projects">
       <div class="card">
         <h3>🧠 AI Assistant System <span>(2022–Presente)</span></h3>
-        <p>Web UI per interagire con ChatGPT tramite documenti. Integrazione Node-RED per prompt dinamici e API custom.
-        </p>
+        <p>Web UI per interagire con ChatGPT tramite documenti. Integrazione Node-RED per prompt dinamici e API custom.</p>
       </div>
       <div class="card">
         <h3>📱 Business Mobile App <span>(2021–Presente)</span></h3>
@@ -574,25 +722,22 @@
         <p>App Cordova per gestione magazzino con scanner Honeywell, funzionalità offline e DDT.</p>
       </div>
       <div class="card">
-        <h3>🔍 Order OCR WebApp <span>(2025–Presente)</span></h3>
+        <h3>📋 Order OCR WebApp <span>(2025–Presente)</span></h3>
         <p>Dashboard con OCR prodotti, filtri dinamici e conferme ordini. HTML/CSS/JS/JSP.</p>
       </div>
     </div>
   </section>
 
-
   <section class="section" id="carousel">
     <div class="section-title">My Work in Action</div>
-    <div class="carousel-container" style="position: relative; max-width: 700px; margin: 0 auto;">
-      <img src="5.jpg" class="carousel-slide" style="width: 100%; border-radius: 10px; display: block;" />
-      <button class="carousel-prev"
-        style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: #ffb6e6; color: white; border: none; padding: 10px; cursor: pointer;">❮</button>
-      <button class="carousel-next"
-        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: #ffb6e6; color: white; border: none; padding: 10px; cursor: pointer;">❯</button>
+    <div class="carousel-container">
+      <img src="5.jpg" class="carousel-slide" alt="Slide" />
+      <button class="carousel-btn carousel-prev">‹</button>
+      <button class="carousel-btn carousel-next">›</button>
     </div>
   </section>
 
-  <section class="section " id="experience">
+  <section class="section" id="experience">
     <div class="section-title">💼 Esperienza Lavorativa</div>
     <div class="experience">
       <div class="card">
@@ -615,7 +760,7 @@
           <p class="exp-company">Hessian & Quattrocchi</p>
         </div>
         <p>
-          Gestione dell’e-commerce aziendale basato su WooCommerce e WordPress. Personalizzazione dell’interfaccia
+          Gestione dell'e-commerce aziendale basato su WooCommerce e WordPress. Personalizzazione dell'interfaccia
           utente, ottimizzazione della user experience e supporto alla crescita digitale di un brand di moda.
         </p>
       </div>
@@ -634,7 +779,7 @@
     </div>
   </section>
 
-  <section class="section" id="app-demo" style="padding: 60px 5%; background-color: #fff8fc;">
+  <section class="section" id="app-demo" style="background-color: #fff8fc;">
     <div class="app-demo-header">
       <div class="section-title">📱 App Demo: HabitFlow</div>
       <a href="https://github.com/carlottaarmenise-job/HabitFlowApp" target="_blank" class="github-button">
@@ -664,13 +809,13 @@
           💡 Sezione di ispirazione con consigli sulle abitudini<br>
           📤 Esportazione dei dati<br>
           🌓 Tema chiaro (dark mode disabilitata)<br>
-          🔐 Architettura scalabile con Context API e AsyncStorage
+          🏗 Architettura scalabile con Context API e AsyncStorage
         </p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="app-demo2" style="padding: 60px 5%; background-color: #fff8fc;">
+  <section class="section" id="app-demo2">
     <div class="app-demo-header">
       <div class="section-title">📱 App Demo: Hera</div>
       <a href="https://github.com/carlottaarmenise-job/HeraApp" target="_blank" class="github-button">
@@ -679,7 +824,6 @@
     </div>
 
     <div class="app-demo-container">
-
       <div class="text-container-right">
         <h3>Hera</h3>
         <p>
@@ -689,12 +833,12 @@
         </p>
         <p>
           🎠 Carousel con immagini ispirazionali per matrimoni<br>
-          🏛️ Top Location in formato galleria orizzontale<br>
+          🛍️ Top Location in formato galleria orizzontale<br>
           📷 Hero Image a tutto schermo<br>
           🏷️ Categorie tematiche: Ville, Sale, Dimore, Catering<br>
           💬 FAQ interattive (espandibili)<br>
-          📞 Contatti diretti e inviti all’azione<br>
-          📝 Pulsante “Sign Up” per registrazione o contatto<br>
+          📞 Contatti diretti e inviti all'azione<br>
+          📝 Pulsante "Sign Up" per registrazione o contatto
         </p>
       </div>
 
@@ -703,12 +847,10 @@
           <source src="HeraApp.mp4" type="video/mp4" />
         </video>
       </div>
-
     </div>
   </section>
 
-
-  <section class="section" id="app-demo3" style="padding: 60px 5%; background-color: #fff;">
+  <section class="section" id="app-demo3" style="background-color: #fff8fc;">
     <div class="app-demo-header">
       <div class="section-title">📱 App Demo: Beauty Salon</div>
       <a href="https://github.com/carlottaarmenise-job/beautysalon-app" target="_blank" class="github-button">
@@ -746,52 +888,49 @@
     </div>
   </section>
 
-<section class="section" id="app-demo4" style="padding: 60px 5%; background-color: #fff8fc;">
-  <div class="app-demo-header">
-    <div class="section-title">📱 App Demo: DatingApp</div>
-    <a href="https://github.com/carlottaarmenise-job/dating-app" target="_blank" class="github-button">
-      Vai al progetto GitHub
-    </a>
-  </div>
-
-  <div class="app-demo-container">
-
-    <div class="text-container-right">
-      <h3>DatingApp</h3>
-      <p>
-        DatingApp è un'app mobile completa sviluppata in React Native ed Expo per facilitare gli incontri tra persone. 
-        L'applicazione offre un'esperienza fluida e moderna con sistema di match, chat in tempo reale e geolocalizzazione 
-        per trovare persone vicine.
-      </p>
-      <p>
-        🔥 Schermata di login con autenticazione social (Facebook, Apple, Telefono)<br>
-        📍 Radar interattivo per visualizzare profili nelle vicinanze<br>
-        ❤️ Sistema di swipe con animazioni fluide (like, pass, super like)<br>
-        ✨ Schermata di match animata quando c'è reciprocità<br>
-        💬 Chat completa con lista conversazioni e messaggistica in tempo reale<br>
-        👤 Profili dettagliati con foto e informazioni<br>
-        🎨 Design moderno e intuitivo con gradienti e animazioni<br>
-        📱 Compatibile con iOS, Android e Web (Expo SDK 52+)<br>
-      </p>
+  <section class="section" id="app-demo4">
+    <div class="app-demo-header">
+      <div class="section-title">📱 App Demo: DatingApp</div>
+      <a href="https://github.com/carlottaarmenise-job/dating-app" target="_blank" class="github-button">
+        Vai al progetto GitHub
+      </a>
     </div>
 
-    <div class="video-container">
-      <video autoplay muted loop playsinline>
-        <source src="DatingApp.mp4" type="video/mp4" />
-      </video>
+    <div class="app-demo-container">
+      <div class="text-container-right">
+        <h3>DatingApp</h3>
+        <p>
+          DatingApp è un'app mobile completa sviluppata in React Native ed Expo per facilitare gli incontri tra persone. 
+          L'applicazione offre un'esperienza fluida e moderna con sistema di match, chat in tempo reale e geolocalizzazione 
+          per trovare persone vicine.
+        </p>
+        <p>
+          🔥 Schermata di login con autenticazione social (Facebook, Apple, Telefono)<br>
+          🔍 Radar interattivo per visualizzare profili nelle vicinanze<br>
+          ❤️ Sistema di swipe con animazioni fluide (like, pass, super like)<br>
+          ✨ Schermata di match animata quando c'è reciprocità<br>
+          💬 Chat completa con lista conversazioni e messaggistica in tempo reale<br>
+          👤 Profili dettagliati con foto e informazioni<br>
+          🎨 Design moderno e intuitivo con gradienti e animazioni<br>
+          📱 Compatibile con iOS, Android e Web (Expo SDK 52+)
+        </p>
+      </div>
+
+      <div class="video-container">
+        <video autoplay muted loop playsinline>
+          <source src="DatingApp.mp4" type="video/mp4" />
+        </video>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<section class="section" id="app-demo5" style="padding: 60px 5%; background-color: #fff;">
+  <section class="section" id="app-demo5" style="background-color: #fff8fc;">
     <div class="app-demo-header">
       <div class="section-title">🧘 App Demo: Meditation App</div>
       <a href="https://github.com/carlottaarmenise-job/meditationapp" target="_blank" class="github-button">
         Vai al progetto GitHub
       </a>
     </div>
-
 
     <div class="app-demo-container">
       <div class="video-container">
@@ -824,124 +963,200 @@
     </div>
   </section>
 
-
-  <!-- <section class="testimonials" id="testimonials">
-    <div class="section-title" style="text-align: center; color: #ffb6e6;">Testimonianze</div>
-    <div class="testimonial-container">
-      <div class="testimonial-card">
-        <p class="testimonial-text">“Carlotta ha una capacità straordinaria di adattarsi a nuove tecnologie...”</p>
-        <div class="testimonial-author">Collega – Exentriq</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-text">“Ha trasformato il nostro e-commerce in un'esperienza utente moderna...”</p>
-        <div class="testimonial-author">Supervisore – Hessian & Quattrocchi</div>
-      </div>
-    </div>
-  </section> -->
-
   <section class="contact" id="contact">
     <div class="section-title">Get In Touch</div>
     <p class="description">Cerchi una sviluppatrice full stack per il tuo prossimo progetto? Scrivimi pure!</p>
-    <p class="description">Email: <a href="mailto:carlottaarmenise.job@gmail.com">carlottaarmenise.job@gmail.com</a></p>
-    <p class="description">Tel: <a href="tel:+393898727311">+39 389 872 7311</a></p>
+    <p class="description">Email: <a href="mailto:carlottaarmenise.job@gmail.com" style="color: #ff85c1; font-weight: 600;">carlottaarmenise.job@gmail.com</a></p>
+    <p class="description">Tel: <a href="tel:+393898727311" style="color: #ff85c1; font-weight: 600;">+39 389 872 7311</a></p>
   </section>
 
-  <footer style="background: #fff0f7; padding: 40px 5%; text-align: center; border-top: 1px solid #ffe0ef;">
+  <footer>
     <div style="max-width: 800px; margin: 0 auto;">
-      <div style="font-size: 18px; font-weight: bold; color: #ff4fbf; margin-bottom: 20px;">Stay Connected</div>
-      <div class="social-icons" style="margin-bottom: 24px;">
-        <a href="https://github.com/carlottaarmenise-job" target="_blank">💼</a>
+      <div style="font-size: 20px; font-weight: 700; color: #ff4fbf; margin-bottom: 20px;">Stay Connected</div>
+      <div class="social-icons">
+        <a href="https://github.com/carlottaarmenise-job" target="_blank" aria-label="GitHub">💼</a>
       </div>
       <div style="font-weight: 700; font-size: 16px; color: #ff85c1; margin-bottom: 8px;">Carlotta Armenise</div>
       <div style="font-size: 13px; color: #888;">© 2025 All rights reserved – Made with ❤️</div>
     </div>
   </footer>
 
-  <button id="backToTop">↑</button>
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    $(function () {
-      $('a[href^="#"]').on('click', function (event) {
-        const targetId = $(this).attr('href');
-        const $target = $(targetId);
+    // Configurazione
+    const carouselSlides = ['5.jpg', '6.jpg', '7.jpg'];
+    let currentSlideIndex = 0;
 
-        if (!$target.length) return;
+    // Elementi DOM
+    const elements = {
+      menuToggle: document.getElementById('menuToggle'),
+      mobileMenu: document.getElementById('mobileMenu'),
+      backToTop: document.getElementById('backToTop'),
+      carouselSlide: document.querySelector('.carousel-slide'),
+      carouselPrev: document.querySelector('.carousel-prev'),
+      carouselNext: document.querySelector('.carousel-next'),
+      navLinks: document.querySelectorAll('.nav-right a[href^="#"]'),
+      sections: document.querySelectorAll('.section, .contact')
+    };
 
-        event.preventDefault();
-
-        $('html, body').animate({
-          scrollTop: $target.offset().top - 60
-        }, 500);
-
-        $('.nav-right a').removeClass('active');
-        $('.nav-right a[href="' + targetId + '"]').addClass('active');
-
-        if ($('#mobileMenu').hasClass('show')) {
-          $('#mobileMenu').removeClass('show');
+    // Smooth scroll per navigazione
+    elements.navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        
+        // Ignora il link dashboard
+        if (targetId === '#dashboard') return;
+        
+        const targetSection = document.querySelector(targetId);
+        
+        if (!targetSection) return;
+        
+        e.preventDefault();
+        
+        // Scroll smooth
+        const headerOffset = 80;
+        const elementPosition = targetSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Aggiorna classe active
+        elements.navLinks.forEach(navLink => navLink.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Chiudi menu mobile se aperto
+        if (elements.mobileMenu.classList.contains('show')) {
+          elements.mobileMenu.classList.remove('show');
         }
       });
-
-      function revealOnScroll() {
-        $('.section, .testimonials, .contact').each(function () {
-          const top = $(this).offset().top;
-          const bottomOfWindow = $(window).scrollTop() + $(window).height();
-
-          if (bottomOfWindow > top + 50) {
-            $(this).addClass('visible');
-          }
-        });
-      }
-
-      $(window).on('scroll', function () {
-        revealOnScroll();
-
-        // Back to top
-        if ($(window).scrollTop() > 300) {
-          $('#backToTop').fadeIn();
-        } else {
-          $('#backToTop').fadeOut();
-        }
-      });
-
-      $('#backToTop').on('click', function () {
-        $('html, body').animate({ scrollTop: 0 }, 600);
-      });
-
-      $('#menuToggle').on('click', function () {
-        $('#mobileMenu').toggleClass('show');
-      });
-
-      const slides = [
-        '5.jpg',
-        '6.jpg',
-        '7.jpg'
-      ];
-      let currentSlide = 0;
-      const slideEl = $('.carousel-slide');
-
-      function showSlide(index) {
-        slideEl.fadeOut(200, function () {
-          slideEl.attr('src', slides[index]).fadeIn(200);
-        });
-      }
-
-      $('.carousel-next').on('click', function () {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-      });
-
-      $('.carousel-prev').on('click', function () {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-      });
-
-      revealOnScroll();
-      showSlide(currentSlide);
     });
-  </script>
 
+    // Reveal on scroll con Intersection Observer
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    elements.sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Back to top button
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      
+      scrollTimeout = setTimeout(() => {
+        if (window.pageYOffset > 300) {
+          elements.backToTop.style.display = 'block';
+        } else {
+          elements.backToTop.style.display = 'none';
+        }
+      }, 100);
+    });
+
+    elements.backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Menu mobile toggle
+    elements.menuToggle.addEventListener('click', () => {
+      elements.mobileMenu.classList.toggle('show');
+    });
+
+    // Chiudi menu mobile quando si clicca fuori
+    document.addEventListener('click', (e) => {
+      if (!elements.menuToggle.contains(e.target) && 
+          !elements.mobileMenu.contains(e.target) && 
+          elements.mobileMenu.classList.contains('show')) {
+        elements.mobileMenu.classList.remove('show');
+      }
+    });
+
+    // Funzione carousel migliorata
+    function updateCarousel(index) {
+      if (!elements.carouselSlide || !carouselSlides[index]) return;
+      
+      // Aggiungi fade effect
+      elements.carouselSlide.style.opacity = '0';
+      
+      setTimeout(() => {
+        elements.carouselSlide.src = carouselSlides[index];
+        elements.carouselSlide.style.opacity = '1';
+      }, 200);
+    }
+
+    // Event listeners carousel
+    if (elements.carouselNext) {
+      elements.carouselNext.addEventListener('click', () => {
+        currentSlideIndex = (currentSlideIndex + 1) % carouselSlides.length;
+        updateCarousel(currentSlideIndex);
+      });
+    }
+
+    if (elements.carouselPrev) {
+      elements.carouselPrev.addEventListener('click', () => {
+        currentSlideIndex = (currentSlideIndex - 1 + carouselSlides.length) % carouselSlides.length;
+        updateCarousel(currentSlideIndex);
+      });
+    }
+
+    // Preload delle immagini del carousel
+    carouselSlides.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    // Inizializza carousel
+    if (elements.carouselSlide) {
+      elements.carouselSlide.style.transition = 'opacity 0.3s ease';
+      updateCarousel(currentSlideIndex);
+    }
+
+    // Auto-play carousel (opzionale)
+    let carouselInterval;
+    const startCarouselAutoplay = () => {
+      carouselInterval = setInterval(() => {
+        currentSlideIndex = (currentSlideIndex + 1) % carouselSlides.length;
+        updateCarousel(currentSlideIndex);
+      }, 5000);
+    };
+
+    const stopCarouselAutoplay = () => {
+      clearInterval(carouselInterval);
+    };
+
+    // Avvia autoplay (puoi commentare se non vuoi l'autoplay)
+    // startCarouselAutoplay();
+
+    // Ferma autoplay quando l'utente interagisce
+    if (elements.carouselNext || elements.carouselPrev) {
+      [elements.carouselNext, elements.carouselPrev].forEach(btn => {
+        if (btn) {
+          btn.addEventListener('click', () => {
+            stopCarouselAutoplay();
+            // Riavvia dopo 10 secondi di inattività
+            setTimeout(startCarouselAutoplay, 10000);
+          });
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
