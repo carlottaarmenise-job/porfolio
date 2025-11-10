@@ -6,7 +6,6 @@ import {
   Form,
   Button,
   ListGroup,
-  Badge,
   Card,
   InputGroup,
 } from "react-bootstrap";

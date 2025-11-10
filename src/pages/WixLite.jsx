@@ -47,13 +47,6 @@ export default function WebsiteBuilder() {
         );
     };
 
-    const updateElementStyles = (id, newStyles) => {
-        setElements((prev) =>
-            prev.map((el) =>
-                el.id === id ? { ...el, styles: { ...el.styles, ...newStyles } } : el
-            )
-        );
-    };
 
     const deleteElement = (id) => {
         setElements((prev) => prev.filter((el) => el.id !== id));

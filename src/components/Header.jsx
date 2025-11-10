@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bell, Search, UserCircle } from 'lucide-react';
-import { Container, Form, InputGroup, Button, Navbar, Nav, Dropdown, Modal, ListGroup } from 'react-bootstrap';
+import { Bell, UserCircle } from 'lucide-react';
+import { Container, Button, Navbar, Nav, Dropdown, Modal, ListGroup } from 'react-bootstrap';
 
 export default function Header({ onToggleSidebar }) {
   const [showNotificationsModal, setShowNotificationsModal] = useState(false);
