@@ -15,14 +15,18 @@ export default function LandingPage() {
   }, [navigate])
 
   return (
-    <>
-      <iframe
-        src="/site.html"
-        title="Landing"
-        width="100%"
-        height="100%"
-        style={{ border: 'none' }}
-      />
-    </>
+    <iframe
+      src="/site.html"
+      title="Portfolio Carlotta Armenise"
+      width="100%"
+      height="100%"
+      style={{
+        border: 'none',
+        display: 'block',
+        width: '100%',
+        height: '100%',
+        minHeight: '100vh'
+      }}
+    />
   )
 }
