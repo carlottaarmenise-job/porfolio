@@ -182,6 +182,18 @@
       box-shadow: 0 12px 28px rgba(232, 90, 168, 0.35);
     }
 
+    .btn-pill--ghost {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--color-accent) !important;
+      border: 1px solid var(--color-primary-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-pill--ghost:hover {
+      background: #fff;
+      box-shadow: var(--shadow-pink);
+    }
+
     /* —— Hero —— */
     .hero {
       text-align: center;
@@ -246,6 +258,10 @@
 
     .hero .cv-download {
       animation: fadeInUp 0.8s ease 0.3s backwards;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
     }
 
     @keyframes fadeInUp {
@@ -253,6 +269,7 @@
         opacity: 0;
         transform: translateY(24px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -264,6 +281,7 @@
     .contact {
       padding: clamp(3.5rem, 8vw, 5.5rem) 0;
       background: var(--color-surface);
+      scroll-margin-top: calc(var(--header-h) + 8px);
     }
 
     .section.section--alt {
@@ -441,6 +459,11 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.25rem;
       margin-top: 2rem;
+      margin-bottom: 0;
+    }
+
+    #gallery.section {
+      padding-bottom: clamp(2.25rem, 5vw, 3.25rem);
     }
 
     .gallery-item {
@@ -735,6 +758,244 @@
       border-color: var(--color-border);
     }
 
+    /* —— Servizi —— */
+    .service-card h3 {
+      margin-bottom: 1.1rem;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    .service-list li::before {
+      content: '✦';
+      color: var(--color-primary);
+      font-size: 0.75rem;
+      line-height: 1.9;
+      flex-shrink: 0;
+    }
+
+    .service-feature {
+      margin-top: 1.75rem;
+      background: linear-gradient(135deg, #ffffff, var(--color-bg-soft));
+      border: 1px solid var(--color-primary-light);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-feature-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 1rem;
+    }
+
+    .service-feature h3 {
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .service-feature-grid li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 0.75rem 0.95rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.45;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .service-feature-grid li:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-primary-light);
+    }
+
+    .service-feature-grid .emoji {
+      flex-shrink: 0;
+      font-size: 1.05rem;
+    }
+
+    .services-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .services-cta p {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* —— Services Gallery —— */
+    .services-gallery {
+      margin-top: 3rem;
+    }
+
+    .services-gallery-title {
+      margin-bottom: 0.5rem;
+      color: var(--color-accent);
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      font-weight: 700;
+    }
+
+    .services-gallery-intro {
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .services-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .services-gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .services-gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .services-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .services-gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Overlay */
+    .services-gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(45, 42, 46, 0.65),
+          transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .services-gallery-item:hover .services-gallery-overlay {
+      opacity: 1;
+    }
+
+    .services-gallery-overlay span {
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* Lightbox */
+    .services-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 22, 25, 0.9);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .services-lightbox.show {
+      display: flex;
+    }
+
+    .services-lightbox img {
+      max-width: min(1100px, 95vw);
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .services-lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--color-accent);
+      font-size: 1.6rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      .services-gallery-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+    }
+
     /* —— Responsive —— */
     @media (max-width: 900px) {
       .about-container {
@@ -865,20 +1126,15 @@
           <img src="logo%20carlotta.png" alt="Logo Carlotta Armenise" width="140" height="46" />
         </a>
       </div>
-      <button
-        class="mobile-menu-button"
-        id="menuToggle"
-        type="button"
-        aria-label="Apri menu di navigazione"
-        aria-expanded="false"
-        aria-controls="mobileMenu"
-      >☰</button>
+      <button class="mobile-menu-button" id="menuToggle" type="button" aria-label="Apri menu di navigazione"
+        aria-expanded="false" aria-controls="mobileMenu">☰</button>
       <nav class="nav-right" id="mobileMenu" aria-label="Navigazione principale">
         <a href="#about" class="active">Chi sono</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Progetti</a>
         <a href="#experience">Esperienza</a>
         <a href="#app-demo">App Demo</a>
+        <a href="#servizi">Servizi</a>
         <a href="#contact">Contatti</a>
       </nav>
     </div>
@@ -889,9 +1145,11 @@
       <div class="container">
         <span class="hero-badge">Full Stack Developer</span>
         <h1 id="hero-title">Carlotta Armenise</h1>
-        <p class="lead">Esperta in soluzioni digitali moderne e scalabili, dal frontend al backend. Progetto esperienze web e mobile curate, performanti e pensate per le persone.</p>
+        <p class="lead">Esperta in soluzioni digitali moderne e scalabili, dal frontend al backend. Progetto esperienze
+          web e mobile curate, performanti e pensate per le persone.</p>
         <div class="cv-download">
           <a class="btn-pill" href="CV%20ARMENISE%20CARLOTTA%20022026.pdf" download>Scarica CV (PDF)</a>
+          <a class="btn-pill btn-pill--ghost" href="#servizi">Scopri i miei servizi</a>
         </div>
       </div>
     </section>
@@ -902,22 +1160,30 @@
         <div class="about-container">
           <div class="about-text">
             <p class="description">
-              Sono una Full Stack Developer con una forte vocazione all'innovazione e alla crescita continua. Sviluppo soluzioni
-              digitali complete, occupandomi sia del frontend che del backend, con particolare attenzione all'esperienza utente, alla qualità del
+              Sono una Full Stack Developer con una forte vocazione all'innovazione e alla crescita continua. Sviluppo
+              soluzioni
+              digitali complete, occupandomi sia del frontend che del backend, con particolare attenzione all'esperienza
+              utente, alla qualità del
               codice e alla scalabilità dei progetti.
-              Ho esperienza nello sviluppo di applicazioni web, mobile e nell'automazione dei dati, seguendo tutte le fasi del
+              Ho esperienza nello sviluppo di applicazioni web, mobile e nell'automazione dei dati, seguendo tutte le
+              fasi del
               ciclo di vita del software.
             </p>
             <p class="description">
-              Utilizzo quotidianamente tecnologie moderne come JavaScript e TypeScript, insieme a framework come React.js, React
-              Native e Cordova per lo sviluppo di interfacce web e mobile performanti. Sul lato backend, ho esperienza con database SQL (MySQL e simili) e
-              strumenti di automazione come Node-RED, che utilizzo per integrare servizi e flussi complessi. Ho anche avuto occasione di lavorare con Python e Scrapy,
+              Utilizzo quotidianamente tecnologie moderne come JavaScript e TypeScript, insieme a framework come
+              React.js, React
+              Native e Cordova per lo sviluppo di interfacce web e mobile performanti. Sul lato backend, ho esperienza
+              con database SQL (MySQL e simili) e
+              strumenti di automazione come Node-RED, che utilizzo per integrare servizi e flussi complessi. Ho anche
+              avuto occasione di lavorare con Python e Scrapy,
               pur non essendo questi il mio focus principale.
             </p>
             <p class="description">
-              Sono in grado di implementare pacchetti esterni, utilizzare framework CSS come Tailwind e Bootstrap, e adottare le
+              Sono in grado di implementare pacchetti esterni, utilizzare framework CSS come Tailwind e Bootstrap, e
+              adottare le
               migliori pratiche di sviluppo in ambienti Agile.
-              Ho una mentalità orientata al problem solving e una forte capacità di adattamento a nuovi contesti e tecnologie.
+              Ho una mentalità orientata al problem solving e una forte capacità di adattamento a nuovi contesti e
+              tecnologie.
             </p>
             <p class="description">
               Cerco costantemente opportunità per crescere, confrontarmi e contribuire a progetti innovativi in cui la
@@ -925,13 +1191,7 @@
             </p>
           </div>
           <div class="about-image">
-            <img
-              src="profile.jpeg"
-              alt="Ritratto di Carlotta Armenise"
-              class="profile-img"
-              width="280"
-              height="280"
-            />
+            <img src="profile.jpeg" alt="Ritratto di Carlotta Armenise" class="profile-img" width="280" height="280" />
           </div>
         </div>
       </div>
@@ -940,7 +1200,8 @@
     <section class="section section--alt js-reveal" id="skills">
       <div class="container">
         <h2 class="section-title">Skills</h2>
-        <p class="section-intro">Un mix di frontend, backend e tool che uso ogni giorno per costruire prodotti digitali solidi.</p>
+        <p class="section-intro">Un mix di frontend, backend e tool che uso ogni giorno per costruire prodotti digitali
+          solidi.</p>
         <div class="card-grid">
           <article class="card">
             <h3><span class="emoji" aria-hidden="true">🎨</span> Frontend</h3>
@@ -998,30 +1259,38 @@
     <section class="section section--alt js-reveal" id="projects">
       <div class="container">
         <h2 class="section-title"><span aria-hidden="true">🚀</span> Progetti in evidenza</h2>
-        <p class="section-intro">Prodotti web e mobile realizzati per aziende e team, con focus su UX, integrazione e scalabilità.</p>
+        <p class="section-intro">Prodotti web e mobile realizzati per aziende e team, con focus su UX, integrazione e
+          scalabilità.</p>
         <div class="card-grid">
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🧠</span> AI Assistant System <span class="card-meta">2022 – Presente</span></h3>
-            <p>Web UI per interagire con ChatGPT tramite documenti. Integrazione Node-RED per prompt dinamici e API custom.</p>
+            <h3><span class="emoji" aria-hidden="true">🧠</span> AI Assistant System <span class="card-meta">2022 –
+                Presente</span></h3>
+            <p>Web UI per interagire con ChatGPT tramite documenti. Integrazione Node-RED per prompt dinamici e API
+              custom.</p>
           </article>
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📱</span> Business Mobile App <span class="card-meta">2021 – Presente</span></h3>
+            <h3><span class="emoji" aria-hidden="true">📱</span> Business Mobile App <span class="card-meta">2021 –
+                Presente</span></h3>
             <p>App React Native con chat, GPS, notifiche, task management stile Trello e upload multimediali.</p>
           </article>
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📊</span> CRM Dashboard <span class="card-meta">2023 – Presente</span></h3>
+            <h3><span class="emoji" aria-hidden="true">📊</span> CRM Dashboard <span class="card-meta">2023 –
+                Presente</span></h3>
             <p>Frontend JSP/HTML per gestione HR, KPI, valutazioni e generazione report PDF.</p>
           </article>
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🛠️</span> Custom CMS Creator <span class="card-meta">2024 – Presente</span></h3>
+            <h3><span class="emoji" aria-hidden="true">🛠️</span> Custom CMS Creator <span class="card-meta">2024 –
+                Presente</span></h3>
             <p>Personalizzazione CMS: input dinamici, editor e upload file. Tech: HTML/CSS/JS.</p>
           </article>
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📦</span> Warehouse App <span class="card-meta">2024 – Presente</span></h3>
+            <h3><span class="emoji" aria-hidden="true">📦</span> Warehouse App <span class="card-meta">2024 –
+                Presente</span></h3>
             <p>App Cordova per gestione magazzino con scanner Honeywell, funzionalità offline e DDT.</p>
           </article>
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📋</span> Order OCR WebApp <span class="card-meta">2025 – Presente</span></h3>
+            <h3><span class="emoji" aria-hidden="true">📋</span> Order OCR WebApp <span class="card-meta">2025 –
+                Presente</span></h3>
             <p>Dashboard con OCR prodotti, filtri dinamici e conferme ordini. HTML/CSS/JS/JSP.</p>
           </article>
         </div>
@@ -1051,7 +1320,8 @@
             <p class="exp-company">Exentriq LTD</p>
             <p>
               Sviluppo completo di soluzioni web e mobile per clienti aziendali. Tecnologie utilizzate: HTML, CSS,
-              JavaScript, TypeScript, React.js, React Native, Cordova, JSP, Python, Scrapy, MySQL. Lavoro su dashboard, app
+              JavaScript, TypeScript, React.js, React Native, Cordova, JSP, Python, Scrapy, MySQL. Lavoro su dashboard,
+              app
               mobile, automazioni con Node-RED e API.
             </p>
           </article>
@@ -1081,7 +1351,8 @@
       <div class="container">
         <div class="app-demo-header">
           <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: HabitFlow</h2>
-          <a href="https://github.com/carlottaarmenise-job/HabitFlowApp" target="_blank" rel="noopener noreferrer" class="btn-pill">
+          <a href="https://github.com/carlottaarmenise-job/HabitFlowApp" target="_blank" rel="noopener noreferrer"
+            class="btn-pill">
             Vai al progetto GitHub
           </a>
         </div>
@@ -1117,7 +1388,8 @@
       <div class="container">
         <div class="app-demo-header">
           <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: Hera</h2>
-          <a href="https://github.com/carlottaarmenise-job/HeraApp" target="_blank" rel="noopener noreferrer" class="btn-pill">
+          <a href="https://github.com/carlottaarmenise-job/HeraApp" target="_blank" rel="noopener noreferrer"
+            class="btn-pill">
             Vai al progetto GitHub
           </a>
         </div>
@@ -1125,8 +1397,10 @@
           <div class="text-container-right">
             <h3>Hera</h3>
             <p class="description">
-              Hera è un'app mobile sviluppata in React Native per aiutare le coppie a pianificare il proprio matrimonio in
-              modo semplice, elegante e completamente personalizzato. Offre una panoramica curata delle migliori location,
+              Hera è un'app mobile sviluppata in React Native per aiutare le coppie a pianificare il proprio matrimonio
+              in
+              modo semplice, elegante e completamente personalizzato. Offre una panoramica curata delle migliori
+              location,
               FAQ utili, ispirazioni fotografiche, e molto altro.
             </p>
             <ul class="feature-list">
@@ -1152,7 +1426,8 @@
       <div class="container">
         <div class="app-demo-header">
           <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: Beauty Salon</h2>
-          <a href="https://github.com/carlottaarmenise-job/beautysalon-app" target="_blank" rel="noopener noreferrer" class="btn-pill">
+          <a href="https://github.com/carlottaarmenise-job/beautysalon-app" target="_blank" rel="noopener noreferrer"
+            class="btn-pill">
             Vai al progetto GitHub
           </a>
         </div>
@@ -1191,7 +1466,8 @@
       <div class="container">
         <div class="app-demo-header">
           <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: DatingApp</h2>
-          <a href="https://github.com/carlottaarmenise-job/dating-app" target="_blank" rel="noopener noreferrer" class="btn-pill">
+          <a href="https://github.com/carlottaarmenise-job/dating-app" target="_blank" rel="noopener noreferrer"
+            class="btn-pill">
             Vai al progetto GitHub
           </a>
         </div>
@@ -1199,8 +1475,10 @@
           <div class="text-container-right">
             <h3>DatingApp</h3>
             <p class="description">
-              DatingApp è un'app mobile completa sviluppata in React Native ed Expo per facilitare gli incontri tra persone.
-              L'applicazione offre un'esperienza fluida e moderna con sistema di match, chat in tempo reale e geolocalizzazione
+              DatingApp è un'app mobile completa sviluppata in React Native ed Expo per facilitare gli incontri tra
+              persone.
+              L'applicazione offre un'esperienza fluida e moderna con sistema di match, chat in tempo reale e
+              geolocalizzazione
               per trovare persone vicine.
             </p>
             <ul class="feature-list">
@@ -1227,7 +1505,8 @@
       <div class="container">
         <div class="app-demo-header">
           <h2 class="section-title"><span aria-hidden="true">🧘</span> App Demo: Meditation App</h2>
-          <a href="https://github.com/carlottaarmenise-job/meditationapp" target="_blank" rel="noopener noreferrer" class="btn-pill">
+          <a href="https://github.com/carlottaarmenise-job/meditationapp" target="_blank" rel="noopener noreferrer"
+            class="btn-pill">
             Vai al progetto GitHub
           </a>
         </div>
@@ -1263,6 +1542,248 @@
       </div>
     </section>
 
+    <section class="section section--alt js-reveal" id="servizi">
+      <div class="container">
+        <h2 class="section-title">Servizi</h2>
+        <p class="section-intro">
+          Dallo sviluppo su misura alla comunicazione visiva: seguo il progetto dall'idea alla pubblicazione,
+          curando codice, grafica e presenza online con un unico stile coordinato.
+        </p>
+        <div class="card-grid">
+          <article class="card service-card">
+            <h3><span class="emoji" aria-hidden="true">💻</span> Sviluppo</h3>
+            <ul class="service-list">
+              <li>App mobile iOS e Android</li>
+              <li>Siti web</li>
+              <li>E-commerce</li>
+              <li>Portali web personalizzati</li>
+              <li>Portali di prenotazione</li>
+            </ul>
+          </article>
+          <article class="card service-card">
+            <h3><span class="emoji" aria-hidden="true">🎨</span> Design</h3>
+            <ul class="service-list">
+              <li>Loghi</li>
+              <li>Brand identity</li>
+              <li>Menu e listini</li>
+              <li>Grafiche per attività</li>
+              <li>Locandine e materiale promozionale</li>
+              <li>Menu digitali</li>
+            </ul>
+          </article>
+          <article class="card service-card">
+            <h3><span class="emoji" aria-hidden="true">📱</span> Social media</h3>
+            <ul class="service-list">
+              <li>Creazione contenuti</li>
+              <li>Grafiche per Instagram e Facebook</li>
+              <li>Gestione profili social</li>
+              <li>Piano editoriale</li>
+              <li>Pubblicazione dei contenuti</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="service-feature">
+          <span class="service-feature-badge">Pacchetto completo</span>
+          <h3><span aria-hidden="true">🍽️</span> Soluzioni per attività</h3>
+          <p class="description">
+            Un pacchetto pensato per ristoranti, bar, B&amp;B, hotel e attività locali: sito, menu digitale,
+            prenotazioni e social gestiti insieme, con una grafica coordinata dal logo fino all'ultima storia Instagram.
+          </p>
+          <ul class="service-feature-grid">
+            <li><span class="emoji" aria-hidden="true">📲</span> Menu digitale con QR Code</li>
+            <li><span class="emoji" aria-hidden="true">🌐</span> Sito web per ristoranti, bar, B&amp;B e hotel</li>
+            <li><span class="emoji" aria-hidden="true">📅</span> Sistema di prenotazione online</li>
+            <li><span class="emoji" aria-hidden="true">📸</span> Gestione Instagram</li>
+            <li><span class="emoji" aria-hidden="true">🎨</span> Grafiche e menu coordinati</li>
+            <li><span class="emoji" aria-hidden="true">🚀</span> Landing page per promozioni ed eventi</li>
+          </ul>
+          <div class="services-cta">
+            <a class="btn-pill" href="#contact">Richiedi un preventivo</a>
+            <p>Ogni progetto è su misura: scrivimi e ne parliamo insieme.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Gallery servizi -->
+    <section class="section js-reveal" id="galleryServices">
+      <div class="container services-gallery">
+
+        <h3 class="services-gallery-title">Alcuni dei miei lavori</h3>
+
+        <p class="services-gallery-intro">
+          Una selezione di progetti e materiali realizzati per i miei clienti.
+        </p>
+
+        <div class="services-gallery-grid">
+
+          <figure class="services-gallery-item" data-image="brandidentity.jpeg" data-alt="Brand Identity">
+            <img src="brandidentity.jpeg" alt="Brand Identity" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Brand Identity</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="digitalmenu.jpeg" data-alt="Digital Menu">
+            <img src="digitalmenu.jpeg" alt="Digital Menu" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Digital Menu</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="graphic.jpeg" data-alt="Grafiche">
+            <img src="graphic.jpeg" alt="Grafiche" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Grafiche</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="loghi.jpeg" data-alt="Loghi">
+            <img src="loghi.jpeg" alt="Loghi" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Loghi</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="locandine.jpeg" data-alt="Locandine">
+            <img src="locandine.jpeg" alt="Locandine" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Locandine</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="menu.jpeg" data-alt="Menu">
+            <img src="menu.jpeg" alt="Menu" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Menu</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="sm1.jpeg" data-alt="Creazione contenuti">
+            <img src="sm1.jpeg" alt="Creazione contenuti" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Creazione contenuti</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="sm2.jpeg" data-alt="Grafiche per Instagram/Facebook">
+            <img src="sm2.jpeg" alt="Grafiche per Instagram/Facebook" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Grafiche per Instagram/Facebook</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="sm3.jpeg" data-alt="Gestione profili social">
+            <img src="sm3.jpeg" alt="Gestione profili social" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Gestione profili social</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="sm4.jpeg" data-alt="Piano editoriale">
+            <img src="sm4.jpeg" alt="Piano editoriale" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Piano editoriale</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="sm5.jpeg" data-alt="Pubblicazione dei contenuti">
+            <img src="sm5.jpeg" alt="Pubblicazione dei contenuti" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Pubblicazione dei contenuti</span>
+            </div>
+          </figure>
+
+
+          <figure class="services-gallery-item" data-image="all.jpeg" data-alt="Tutti i servizi">
+            <img src="all.jpeg" alt="Tutti i servizi" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Tutti i servizi</span>
+            </div>
+          </figure>
+
+          <figure class="services-gallery-item" data-image="landing.jpeg"
+            data-alt="Landing page per promozioni ed eventi">
+            <img src="landing.jpeg" alt="Landing page per promozioni ed eventi" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Landing page per promozioni ed eventi</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="resturantbranding.jpeg"
+            data-alt="Grafiche e menu coordinati">
+            <img src="resturantbranding.jpeg" alt="Grafiche e menu coordinati" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Grafiche e menu coordinati</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="ig.jpeg" data-alt="Gestione Instagram">
+            <img src="ig.jpeg" alt="Gestione Instagram" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Gestione Instagram</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="booking.jpeg" data-alt="Sistema di prenotazione online">
+            <img src="booking.jpeg" alt="Sistema di prenotazione online" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Sistema di prenotazione online</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="sitiweb.jpeg"
+            data-alt="Sito web per ristoranti, bar, B&B e hotel">
+            <img src="sitiweb.jpeg" alt="Sito web per ristoranti, bar, B&B e hotel" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Sito web per ristoranti, bar, B&B e hotel</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="menuqr.jpeg" data-alt="Menu digitale con QR Code">
+            <img src="menuqr.jpeg" alt="Menu digitale con QR Code" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Menu digitale con QR Code</span>
+            </div>
+          </figure>
+
+
+          <figure class="services-gallery-item" data-image="sitoweb_it.jpeg" data-alt="Siti Web">
+            <img src="sitoweb_it.jpeg" alt="Sito web" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Siti Web</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="app.jpeg" data-alt="Applicazioni mobile">
+            <img src="app.jpeg" alt="App mobile iOS e Android" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>App mobile iOS e Android</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="ecommerce.jpeg" data-alt="E-commerce">
+            <img src="ecommerce.jpeg" alt="E-commerce" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>E-commerce</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="portali.jpeg" data-alt="Portali web personalizzati">
+            <img src="portali.jpeg" alt="Portali web personalizzati" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Portali web personalizzati</span>
+            </div>
+          </figure>
+          <figure class="services-gallery-item" data-image="prenotazione.jpeg" data-alt="Portali di prenotazione">
+            <img src="prenotazione.jpeg" alt="Portali di prenotazione" loading="lazy" />
+            <div class="services-gallery-overlay">
+              <span>Portali di prenotazione</span>
+            </div>
+          </figure>
+
+
+        </div>
+      </div>
+    </section>
+    <!-- Lightbox -->
+    <div class="services-lightbox" id="servicesLightbox" role="dialog" aria-modal="true"
+      aria-label="Visualizzazione immagine">
+      <button class="services-lightbox-close" id="servicesLightboxClose" type="button" aria-label="Chiudi immagine">
+        ×
+      </button>
+
+      <img id="servicesLightboxImage" src="" alt="" />
+    </div>
     <section class="contact js-reveal" id="contact">
       <div class="container">
         <h2 class="section-title">Contatti</h2>
@@ -1281,7 +1802,8 @@
       <div class="social-icons">
         <a href="https://github.com/carlottaarmenise-job" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577 0-.285-.01-1.04-.016-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.303-5.467-1.333-5.467-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.625-5.48 5.921.43.372.814 1.102.814 2.222 0 1.606-.015 2.902-.015 3.296 0 .32.216.694.825.576C20.565 21.796 24 17.297 24 12 24 5.37 18.63 0 12 0z"/>
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577 0-.285-.01-1.04-.016-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.238 1.84 1.238 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.303-5.467-1.333-5.467-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.807 5.625-5.48 5.921.43.372.814 1.102.814 2.222 0 1.606-.015 2.902-.015 3.296 0 .32.216.694.825.576C20.565 21.796 24 17.297 24 12 24 5.37 18.63 0 12 0z" />
           </svg>
         </a>
       </div>
@@ -1312,7 +1834,7 @@
       carouselStatus: document.querySelector('.carousel-status'),
       navLinks: document.querySelectorAll('.nav-right a[href^="#"]'),
       sections: document.querySelectorAll('.js-reveal'),
-      spySections: document.querySelectorAll('#about, #skills, #projects, #experience, #app-demo, #contact'),
+      spySections: document.querySelectorAll('#about, #skills, #projects, #experience, #app-demo, #servizi, #contact'),
       videos: document.querySelectorAll('video')
     };
 
@@ -1472,6 +1994,54 @@
         video.removeAttribute('autoplay');
       });
     }
+    // Services Gallery Lightbox
+    const servicesGalleryItems = document.querySelectorAll(
+      '.services-gallery-item'
+    );
+
+    const servicesLightbox = document.getElementById('servicesLightbox');
+    const servicesLightboxImage = document.getElementById(
+      'servicesLightboxImage'
+    );
+    const servicesLightboxClose = document.getElementById(
+      'servicesLightboxClose'
+    );
+
+    servicesGalleryItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const image = item.dataset.image;
+        const alt = item.dataset.alt || '';
+
+        servicesLightboxImage.src = image;
+        servicesLightboxImage.alt = alt;
+
+        servicesLightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeServicesLightbox() {
+      servicesLightbox.classList.remove('show');
+      servicesLightboxImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    servicesLightboxClose.addEventListener(
+      'click',
+      closeServicesLightbox
+    );
+
+    servicesLightbox.addEventListener('click', (event) => {
+      if (event.target === servicesLightbox) {
+        closeServicesLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && servicesLightbox.classList.contains('show')) {
+        closeServicesLightbox();
+      }
+    });
   </script>
 </body>
 
