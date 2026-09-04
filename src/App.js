@@ -23,6 +23,7 @@ import CanvasEditor from './pages/FigmaLite'
 import WebsiteBuilder from './pages/WixLite'
 import DailyTasks from './pages/Task'
 import LandingPage from './pages/LandingPage'
+import ServicesPage from './pages/ServicesPage'
 
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
           <Routes>
             {/* Landing fuori dal layout */}
             <Route path="/" element={<LandingPage />} />
+            <Route path="/servizi" element={<ServicesPage />} />
 
             {/* Tutto il resto nel dashboard layout */}
             <Route path="/app" element={<DashboardLayout />}>
