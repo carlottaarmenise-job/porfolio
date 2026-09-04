@@ -20,7 +20,7 @@
         </a>
       </div>
       <button class="mobile-menu-button" id="menuToggle" type="button" aria-label="Apri menu di navigazione"
-        aria-expanded="false" aria-controls="mobileMenu">☰</button>
+        aria-expanded="false" aria-controls="mobileMenu">Menu</button>
       <nav class="nav-right" id="mobileMenu" aria-label="Navigazione principale">
         <a href="#about" class="active">Chi sono</a>
         <a href="#skills">Skills</a>
@@ -90,80 +90,177 @@
       </div>
     </section>
 
-    <section class="section section--alt js-reveal" id="skills">
+    <section class="section section--alt" id="skills">
       <div class="container">
         <h2 class="section-title">Skills</h2>
-        <p class="section-intro">Un mix di frontend, backend e tool che uso ogni giorno per costruire prodotti digitali
-          solidi.</p>
-        <div class="card-grid">
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🎨</span> Frontend</h3>
+        <p class="section-intro">Competenze frontend, mobile, backend e strumenti di integrazione per costruire prodotti
+          digitali solidi.</p>
+        <div class="skills-showcase">
+          <article class="skill-group">
+            <div class="skill-group-content">
+              <h3>Sviluppo Web <span>(Frontend)</span></h3>
             <ul class="skill-list">
-              <li><strong>HTML, CSS</strong> — Interfacce moderne e responsive</li>
-              <li><strong>JavaScript</strong> — Funzionalità dinamiche e interattive</li>
-              <li><strong>TypeScript</strong> — Tipizzazione per progetti scalabili</li>
-              <li><strong>React.js</strong> — Single Page Applications performanti</li>
-              <li><strong>React Native, Cordova</strong> — App mobile cross-platform</li>
+              <li><strong>HTML, CSS</strong> — Creazione di interfacce web moderne, responsive e curate.</li>
+              <li><strong>JavaScript</strong> — Sviluppo di funzionalità dinamiche e interattive.</li>
+              <li><strong>TypeScript</strong> — Tipizzazione statica per progetti strutturati e scalabili.</li>
+              <li><strong>React.js</strong> — Sviluppo di Single Page Applications (SPA) performanti.</li>
             </ul>
+            </div>
           </article>
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🖥️</span> Backend</h3>
+          <article class="skill-group">
+            <div class="skill-group-content">
+              <h3>Sviluppo Mobile</h3>
             <ul class="skill-list">
-              <li><strong>JSP</strong> — Pagine dinamiche Java (base/intermedio)</li>
-              <li><strong>Python</strong> — Scripting e sviluppo backend (base/intermedio)</li>
-              <li><strong>Scrapy</strong> — Web scraping avanzato (base/intermedio)</li>
-              <li><strong>MySQL</strong> — Database relazionali: progettazione e query</li>
+              <li><strong>React Native</strong> — Realizzazione di applicazioni mobile cross-platform per Android e iOS.</li>
+              <li><strong>Cordova</strong> — Creazione di app ibride integrando componenti web con funzionalità native.</li>
+              <li><strong>Java, Kotlin e Swift</strong> — Conoscenze di base per lo sviluppo di app mobile native.</li>
             </ul>
+            </div>
           </article>
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🛠️</span> Tools &amp; Extra</h3>
+          <article class="skill-group">
+            <div class="skill-group-content">
+              <h3>Sviluppo Backend</h3>
             <ul class="skill-list">
-              <li><strong>Node-RED</strong> — Automazione e integrazione tra servizi</li>
-              <li><strong>Postman, Git</strong> — Testing API e controllo versioni</li>
-              <li><strong>WooCommerce, WordPress</strong> — E-commerce personalizzati</li>
-              <li><strong>Java, Kotlin, Swift</strong> — Supporto mobile nativo (base)</li>
+              <li><strong>JSP (JavaServer Pages)</strong> — Creazione di pagine dinamiche basate su Java (livello base).</li>
+              <li><strong>Python</strong> — Scripting, automazione e sviluppo di applicazioni backend (livello base).</li>
+              <li><strong>Scrapy</strong> — Web scraping avanzato per l'estrazione di dati (livello base).</li>
+              <li><strong>Database (MySQL e simili)</strong> — Progettazione, gestione e interrogazione di database
+                relazionali (livello base/intermedio).</li>
             </ul>
+            </div>
+          </article>
+          <article class="skill-group">
+            <div class="skill-group-content">
+              <h3>Automazione <span>&amp; Integrazione</span></h3>
+            <ul class="skill-list">
+              <li><strong>Node-RED</strong> — Creazione di flussi di automazione e integrazione tra servizi.</li>
+            </ul>
+            </div>
+          </article>
+          <article class="skill-group">
+            <div class="skill-group-content">
+              <h3>E-Commerce</h3>
+            <ul class="skill-list">
+              <li><strong>WooCommerce e WordPress</strong> — Gestione e personalizzazione di piattaforme e-commerce.</li>
+              <li><strong>Widget e funzionalità</strong> — Personalizzazione per migliorare l'esperienza utente.</li>
+            </ul>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section js-reveal" id="projects">
+    <section class="section" id="projects">
       <div class="container">
-        <h2 class="section-title"><span aria-hidden="true">🚀</span> Progetti in evidenza</h2>
+        <h2 class="section-title">Progetti in evidenza</h2>
         <p class="section-intro">Prodotti web e mobile realizzati per aziende e team, con focus su UX, integrazione e
           scalabilità.</p>
-        <div class="card-grid">
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🧠</span> AI Assistant System <span class="card-meta">2022 –
-                Presente</span></h3>
-            <p>Web UI per interagire con ChatGPT tramite documenti. Integrazione Node-RED per prompt dinamici e API
-              custom.</p>
+        <div class="projects-list">
+          <article class="project-item">
+            <div class="project-content">
+              <div class="project-heading">
+                <h3>Exentriq – App</h3>
+                <span class="card-meta">01/01/2021 – Attuale</span>
+              </div>
+              <p class="project-role">Full Stack</p>
+              <p class="project-tech"><strong>Tecnologie:</strong> React Native</p>
+              <p>Nel 2021 ho sviluppato da zero un'applicazione mobile utilizzando React Native, Redux, WatermelonDB e
+              diverse altre librerie a supporto. L'app integra un sistema di messaggistica in tempo reale tramite
+              WebSocket, con supporto all'invio di immagini, video, messaggi vocali e posizione GPS. Ho inoltre
+              implementato un sistema di gestione attività in stile Trello, con assegnazione di ticket a responsabili e
+              clienti, oltre alla gestione delle notifiche push.</p>
+            </div>
           </article>
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📱</span> Business Mobile App <span class="card-meta">2021 –
-                Presente</span></h3>
-            <p>App React Native con chat, GPS, notifiche, task management stile Trello e upload multimediali.</p>
+          <article class="project-item">
+            <div class="project-content">
+              <div class="project-heading">
+                <h3>Exentriq – AI</h3>
+                <span class="card-meta">01/01/2026 – Attuale</span>
+              </div>
+              <p class="project-role">Frontend / (parzialmente) Backend</p>
+              <p class="project-tech"><strong>Tecnologie:</strong> HTML, CSS, JavaScript, Node-RED</p>
+              <p>Nel 2022 ho lavorato allo sviluppo frontend di un sistema di intelligenza artificiale basato su un
+              progetto open source, personalizzandolo in base alle esigenze aziendali. L'applicazione consente agli
+              utenti di caricare documenti e interrogarli tramite integrazione con ChatGPT, ottenendo risposte
+              contestuali basate sui file caricati. Sul lato backend ho realizzato un sistema di API per collegare il
+              frontend a ChatGPT, strutturando e ottimizzando i prompt per ottenere risposte coerenti con i requisiti
+              richiesti.</p>
+            </div>
           </article>
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📊</span> CRM Dashboard <span class="card-meta">2023 –
-                Presente</span></h3>
-            <p>Frontend JSP/HTML per gestione HR, KPI, valutazioni e generazione report PDF.</p>
+          <article class="project-item">
+            <div class="project-content">
+              <div class="project-heading">
+                <h3>Exentriq – CRM</h3>
+                <span class="card-meta">01/01/2023 – Attuale</span>
+              </div>
+              <p class="project-role">Frontend</p>
+              <p class="project-tech"><strong>Tecnologie:</strong> JavaScript, HTML, CSS, JSP</p>
+              <p>Nel 2023 ho contribuito allo sviluppo del frontend di un CRM aziendale, implementando diversi widget
+              funzionali. Tra questi: gestione delle descrizioni lavorative con generazione automatica di report PDF,
+              gestione di impiegati e ruoli, amministrazione dei corsi di formazione (assegnazione costi e
+              approvazioni), monitoraggio dei KPI e gestione dettagliata dei profili dipendenti, comprensiva di
+              competenze, talenti e valutazioni assegnate dai tutor.</p>
+            </div>
           </article>
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🛠️</span> Custom CMS Creator <span class="card-meta">2024 –
-                Presente</span></h3>
-            <p>Personalizzazione CMS: input dinamici, editor e upload file. Tech: HTML/CSS/JS.</p>
+          <article class="project-item">
+            <div class="project-content">
+              <div class="project-heading">
+                <h3>Exentriq – CMS</h3>
+                <span class="card-meta">01/01/2024 – Attuale</span>
+              </div>
+              <p class="project-role">Frontend</p>
+              <p class="project-tech"><strong>Tecnologie:</strong> HTML, CSS, JavaScript</p>
+              <p>Nel 2024 ho apportato modifiche evolutive a una dashboard dedicata alla creazione dinamica di CMS
+              basati su template predefiniti. Mi sono occupato della configurazione e gestione di tutti i componenti
+              di input, inclusi text editor avanzati e sistemi di upload file, migliorando flessibilità e usabilità
+              della piattaforma.</p>
+            </div>
           </article>
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📦</span> Warehouse App <span class="card-meta">2024 –
-                Presente</span></h3>
-            <p>App Cordova per gestione magazzino con scanner Honeywell, funzionalità offline e DDT.</p>
+          <article class="project-item">
+            <div class="project-content">
+              <div class="project-heading">
+                <h3>Exentriq – Warehouse App</h3>
+                <span class="card-meta">01/01/2024 – Attuale</span>
+              </div>
+              <p class="project-role">Frontend</p>
+              <p class="project-tech"><strong>Tecnologie:</strong> Cordova</p>
+              <p>Sempre nel 2024 ho lavorato su un'applicazione per la gestione del magazzino, intervenendo su modifiche
+              e bug fixing relativi a componenti come creazione DDT, ordini e gestione scorte. Ho implementato un
+              sistema di scansione integrato con terminali Honeywell utilizzati dal cliente, oltre a un sistema di
+              notifiche interne. È stato inoltre sviluppato un database locale con sincronizzazione dei dati dinamici
+              per consentire l'utilizzo dell'app anche in modalità offline.</p>
+            </div>
           </article>
-          <article class="card">
-            <h3><span class="emoji" aria-hidden="true">📋</span> Order OCR WebApp <span class="card-meta">2025 –
-                Presente</span></h3>
-            <p>Dashboard con OCR prodotti, filtri dinamici e conferme ordini. HTML/CSS/JS/JSP.</p>
+          <article class="project-item">
+            <div class="project-content">
+              <div class="project-heading">
+                <h3>Exentriq – WebApp</h3>
+                <span class="card-meta">01/01/2025 – Attuale</span>
+              </div>
+              <p class="project-role">Frontend</p>
+              <p class="project-tech"><strong>Tecnologie:</strong> HTML, CSS, JavaScript, JSP</p>
+              <p>Nel 2025 ho sviluppato una dashboard web capace di ricevere dinamicamente gli ordini dal backend e di
+              elaborare automaticamente i prodotti tramite tecnologia OCR. Il sistema suddivide i prodotti rilevati,
+              permettendo all'utente di modificarli o confermarli, oltre a filtrare dati per prodotto e cliente,
+              ottimizzando così il processo di gestione ordini.</p>
+            </div>
+          </article>
+          <article class="project-item">
+            <div class="project-content">
+              <div class="project-heading">
+                <h3>PROGETTO E-LEARNING – Moodle</h3>
+                <span class="card-meta">01/09/2025 – Attuale</span>
+              </div>
+              <p class="project-role">Full Stack</p>
+              <p class="project-tech"><strong>Tecnologie:</strong> Moodle, PHP, Node-RED, Database Moodle</p>
+              <p>Ho sviluppato un progetto e-learning partendo dalla piattaforma open source Moodle, personalizzandola
+              in base alle esigenze specifiche del cliente. Ho realizzato plugin custom in PHP per estendere le
+              funzionalità standard della piattaforma, intervenendo sia sulla logica applicativa sia sull'integrazione
+              con i moduli esistenti. Parallelamente, ho sviluppato un'app mobile partendo dal codice dell'app ufficiale
+              Moodle, adattandola e integrandola con le funzionalità personalizzate implementate lato piattaforma. Mi
+              sono inoltre occupato della gestione backend, creando API tramite Node-RED per la comunicazione tra app,
+              frontend e database Moodle, strutturando e organizzando i flussi dati e le logiche di sincronizzazione.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -171,35 +268,56 @@
 
     <section class="section section--alt js-reveal" id="experience">
       <div class="container">
-        <h2 class="section-title"><span aria-hidden="true">💼</span> Esperienza lavorativa</h2>
+        <h2 class="section-title">Esperienza lavorativa</h2>
         <div class="card-grid">
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🚀</span> Full Stack Web &amp; Mobile Developer</h3>
-            <span class="exp-date">Novembre 2021 – Presente</span>
-            <p class="exp-company">Exentriq LTD</p>
+            <h3>Fiori D’Arancio di Giuseppe Carini</h3>
+            <p class="exp-role">Mobile Developer</p>
+            <span class="exp-date">06/2025 – Attuale</span>
             <p>
-              Sviluppo completo di soluzioni web e mobile per clienti aziendali. Tecnologie utilizzate: HTML, CSS,
-              JavaScript, TypeScript, React.js, React Native, Cordova, JSP, Python, Scrapy, MySQL. Lavoro su dashboard,
-              app
-              mobile, automazioni con Node-RED e API.
+              Ho realizzato Hera, un’app mobile sviluppata in React Native, progettata per accompagnare le coppie
+              nell’organizzazione del loro matrimonio in modo semplice, elegante e completamente personalizzato. Mi
+              sono occupato di ogni fase del progetto: ideazione e creazione del design, sviluppo dell’interfaccia
+              utente (UI), implementazione del backend e realizzazione dell’intera applicazione.
+            </p>
+            <p>
+              Hera offre un’esperienza mobile completa e intuitiva, mettendo a disposizione degli utenti strumenti
+              pratici e contenuti curati per trasformare l’organizzazione del matrimonio in un’esperienza piacevole e
+              personalizzata.
             </p>
           </article>
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🧪</span> Junior Developer</h3>
-            <span class="exp-date">2022 – 2023</span>
-            <p class="exp-company">Exentriq LTD</p>
+            <h3>Exentriq LTD</h3>
+            <p class="exp-role">Full Stack Web &amp; Mobile Developer</p>
+            <span class="exp-date">11/2021 – Attuale</span>
             <p>
-              Creazione di sistemi automatizzati di web scraping con Python e Scrapy. Approccio autonomo allo sviluppo,
-              esplorando tecnologie backend, data extraction e API.
+              Dal 2021 lavoro per Exentriq, occupandomi di progetti destinati ai clienti dell'azienda. In questo ruolo,
+              ho acquisito e consolidato un'ampia gamma di competenze, lavorando sia sul fronte backend che frontend, e
+              contribuendo allo sviluppo di soluzioni web e mobile complete.
+            </p>
+            <p>
+              Le tecnologie con cui opero quotidianamente includono HTML, CSS, JavaScript, TypeScript, React.js e React
+              Native per lo sviluppo frontend e mobile, oltre a Cordova per applicazioni ibride. Sul versante backend,
+              utilizzo JSP, Python, Scrapy e database come MySQL e simili. Ho anche familiarità con strumenti di
+              automazione e integrazione come Node-RED e possiedo conoscenze di base di Java, Kotlin e Swift, che mi
+              permettono di collaborare efficacemente anche su progetti mobile nativi.
+            </p>
+            <p>
+              Grazie a questa esperienza, ho sviluppato una forte capacità di adattamento tecnologico e una visione
+              completa dello sviluppo full stack, contribuendo alla realizzazione di progetti innovativi e all'altezza
+              delle esigenze dei clienti di Exentriq.
             </p>
           </article>
           <article class="card">
-            <h3><span class="emoji" aria-hidden="true">🛍️</span> E-Commerce Manager</h3>
-            <span class="exp-date">2020 – Novembre 2021</span>
-            <p class="exp-company">Hessian &amp; Quattrocchi</p>
+            <h3>Hessian &amp; Quattrocchi - Palermo</h3>
+            <p class="exp-role">E-Commerce Manager</p>
+            <span class="exp-date">2020 – 11/2021</span>
             <p>
-              Gestione dell'e-commerce aziendale basato su WooCommerce e WordPress. Personalizzazione dell'interfaccia
-              utente, ottimizzazione della user experience e supporto alla crescita digitale di un brand di moda.
+              E-Commerce Specialist con esperienza nella gestione della piattaforma online di Hessian &amp; Quattrocchi,
+              basata su WooCommerce e WordPress. Mi sono occupato della personalizzazione di widget e funzionalità per
+              migliorare l'esperienza utente e l'efficienza del sito. Hessian &amp; Quattrocchi è un'azienda
+              specializzata nella vendita di abbigliamento, borse e accessori di marchi italiani noti, e ho contribuito
+              attivamente alla crescita e all'ottimizzazione della loro presenza digitale.
             </p>
           </article>
         </div>
@@ -209,7 +327,7 @@
     <section class="section js-reveal" id="app-demo">
       <div class="container">
         <div class="app-demo-header">
-          <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: HabitFlow</h2>
+          <h2 class="section-title">App Demo: HabitFlow</h2>
           <a href="https://github.com/carlottaarmenise-job/HabitFlowApp" target="_blank" rel="noopener noreferrer"
             class="btn-pill">
             Vai al progetto GitHub
@@ -229,14 +347,14 @@
               fluida e coerente con le abitudini reali dell'utente.
             </p>
             <ul class="feature-list">
-              <li>✅ Aggiunta, modifica e cancellazione di abitudini</li>
-              <li>🔄 Tracciamento dei completamenti giornalieri</li>
-              <li>📊 Statistiche utente nel profilo</li>
-              <li>📆 Cronologia completamenti</li>
-              <li>💡 Sezione di ispirazione con consigli sulle abitudini</li>
-              <li>📤 Esportazione dei dati</li>
-              <li>🌓 Tema chiaro (dark mode disabilitata)</li>
-              <li>🏗 Architettura scalabile con Context API e AsyncStorage</li>
+              <li>Aggiunta, modifica e cancellazione di abitudini</li>
+              <li>Tracciamento dei completamenti giornalieri</li>
+              <li>Statistiche utente nel profilo</li>
+              <li>Cronologia completamenti</li>
+              <li>Sezione di ispirazione con consigli sulle abitudini</li>
+              <li>Esportazione dei dati</li>
+              <li>Tema chiaro (dark mode disabilitata)</li>
+              <li>Architettura scalabile con Context API e AsyncStorage</li>
             </ul>
           </div>
         </div>
@@ -246,7 +364,7 @@
     <section class="section section--alt js-reveal" id="app-demo2">
       <div class="container">
         <div class="app-demo-header">
-          <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: Hera</h2>
+          <h2 class="section-title">App Demo: Hera</h2>
           <a href="https://github.com/carlottaarmenise-job/HeraApp" target="_blank" rel="noopener noreferrer"
             class="btn-pill">
             Vai al progetto GitHub
@@ -263,13 +381,13 @@
               FAQ utili, ispirazioni fotografiche, e molto altro.
             </p>
             <ul class="feature-list">
-              <li>🎠 Carousel con immagini ispirazionali per matrimoni</li>
-              <li>🛍️ Top Location in formato galleria orizzontale</li>
-              <li>📷 Hero Image a tutto schermo</li>
-              <li>🏷️ Categorie tematiche: Ville, Sale, Dimore, Catering</li>
-              <li>💬 FAQ interattive (espandibili)</li>
-              <li>📞 Contatti diretti e inviti all'azione</li>
-              <li>📝 Pulsante "Sign Up" per registrazione o contatto</li>
+              <li>Carousel con immagini ispirazionali per matrimoni</li>
+              <li>Top Location in formato galleria orizzontale</li>
+              <li>Hero Image a tutto schermo</li>
+              <li>Categorie tematiche: Ville, Sale, Dimore, Catering</li>
+              <li>FAQ interattive (espandibili)</li>
+              <li>Contatti diretti e inviti all'azione</li>
+              <li>Pulsante "Sign Up" per registrazione o contatto</li>
             </ul>
           </div>
           <div class="video-container">
@@ -284,7 +402,7 @@
     <section class="section js-reveal" id="app-demo3">
       <div class="container">
         <div class="app-demo-header">
-          <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: Beauty Salon</h2>
+          <h2 class="section-title">App Demo: Beauty Salon</h2>
           <a href="https://github.com/carlottaarmenise-job/beautysalon-app" target="_blank" rel="noopener noreferrer"
             class="btn-pill">
             Vai al progetto GitHub
@@ -305,16 +423,16 @@
               premium.
             </p>
             <ul class="feature-list">
-              <li>💅 Catalogo servizi completo (Haircut, Nails, Make Up, Spa, ecc.)</li>
-              <li>👤 Profili specialisti con recensioni e valutazioni</li>
-              <li>📅 Sistema di prenotazione con calendario interattivo</li>
-              <li>🕐 Selezione slot orari in tempo reale</li>
-              <li>📋 Gestione delle prenotazioni con stati (Confermato/In attesa)</li>
-              <li>🔍 Ricerca servizi e filtri per categoria</li>
-              <li>🎨 Banner promozionali con offerte speciali</li>
-              <li>🔐 Sistema di autenticazione con design elegante</li>
-              <li>📱 Bottom Tab Navigation con icone intuitive</li>
-              <li>🌸 UI/UX raffinata con palette rosa (#E91E8C)</li>
+              <li>Catalogo servizi completo (Haircut, Nails, Make Up, Spa, ecc.)</li>
+              <li>Profili specialisti con recensioni e valutazioni</li>
+              <li>Sistema di prenotazione con calendario interattivo</li>
+              <li>Selezione slot orari in tempo reale</li>
+              <li>Gestione delle prenotazioni con stati (Confermato/In attesa)</li>
+              <li>Ricerca servizi e filtri per categoria</li>
+              <li>Banner promozionali con offerte speciali</li>
+              <li>Sistema di autenticazione con design elegante</li>
+              <li>Bottom Tab Navigation con icone intuitive</li>
+              <li>UI/UX raffinata con palette rosa (#E91E8C)</li>
             </ul>
           </div>
         </div>
@@ -324,7 +442,7 @@
     <section class="section section--alt js-reveal" id="app-demo4">
       <div class="container">
         <div class="app-demo-header">
-          <h2 class="section-title"><span aria-hidden="true">📱</span> App Demo: DatingApp</h2>
+          <h2 class="section-title">App Demo: DatingApp</h2>
           <a href="https://github.com/carlottaarmenise-job/dating-app" target="_blank" rel="noopener noreferrer"
             class="btn-pill">
             Vai al progetto GitHub
@@ -341,14 +459,14 @@
               per trovare persone vicine.
             </p>
             <ul class="feature-list">
-              <li>🔥 Schermata di login con autenticazione social (Facebook, Apple, Telefono)</li>
-              <li>🔍 Radar interattivo per visualizzare profili nelle vicinanze</li>
-              <li>❤️ Sistema di swipe con animazioni fluide (like, pass, super like)</li>
-              <li>✨ Schermata di match animata quando c'è reciprocità</li>
-              <li>💬 Chat completa con lista conversazioni e messaggistica in tempo reale</li>
-              <li>👤 Profili dettagliati con foto e informazioni</li>
-              <li>🎨 Design moderno e intuitivo con gradienti e animazioni</li>
-              <li>📱 Compatibile con iOS, Android e Web (Expo SDK 52+)</li>
+              <li>Schermata di login con autenticazione social (Facebook, Apple, Telefono)</li>
+              <li>Radar interattivo per visualizzare profili nelle vicinanze</li>
+              <li>Sistema di swipe con animazioni fluide (like, pass, super like)</li>
+              <li>Schermata di match animata quando c'è reciprocità</li>
+              <li>Chat completa con lista conversazioni e messaggistica in tempo reale</li>
+              <li>Profili dettagliati con foto e informazioni</li>
+              <li>Design moderno e intuitivo con gradienti e animazioni</li>
+              <li>Compatibile con iOS, Android e Web (Expo SDK 52+)</li>
             </ul>
           </div>
           <div class="video-container">
@@ -363,7 +481,7 @@
     <section class="section js-reveal" id="app-demo5">
       <div class="container">
         <div class="app-demo-header">
-          <h2 class="section-title"><span aria-hidden="true">🧘</span> App Demo: Meditation App</h2>
+          <h2 class="section-title">App Demo: Meditation App</h2>
           <a href="https://github.com/carlottaarmenise-job/meditationapp" target="_blank" rel="noopener noreferrer"
             class="btn-pill">
             Vai al progetto GitHub
@@ -384,17 +502,17 @@
               pratica meditativa e al benessere interiore.
             </p>
             <ul class="feature-list">
-              <li>🧘‍♀️ Catalogo meditazioni completo (Relax, Mattina, Sera, Focus, ecc.)</li>
-              <li>⏱️ Player audio con timer e controlli intuitivi (play/pause/forward/backward)</li>
-              <li>📊 Sistema di tracciamento progressi con statistiche dettagliate</li>
-              <li>🔥 Streak tracking — monitora i giorni consecutivi di pratica</li>
-              <li>🏆 Obiettivi e badge di completamento</li>
-              <li>❤️ Sistema di preferiti per salvare le meditazioni</li>
-              <li>🔍 Ricerca avanzata con filtri per categoria e durata</li>
-              <li>📅 Storico sessioni con cronologia completa</li>
-              <li>🔐 Autenticazione utente con design elegante e rilassante</li>
-              <li>📱 Bottom Tab Navigation con 4 sezioni principali</li>
-              <li>🎨 UI/UX zen con palette viola-lavanda (#8B7AB8)</li>
+              <li>Catalogo meditazioni completo (Relax, Mattina, Sera, Focus, ecc.)</li>
+              <li>Player audio con timer e controlli intuitivi (play/pause/forward/backward)</li>
+              <li>Sistema di tracciamento progressi con statistiche dettagliate</li>
+              <li>Streak tracking — monitora i giorni consecutivi di pratica</li>
+              <li>Obiettivi e badge di completamento</li>
+              <li>Sistema di preferiti per salvare le meditazioni</li>
+              <li>Ricerca avanzata con filtri per categoria e durata</li>
+              <li>Storico sessioni con cronologia completa</li>
+              <li>Autenticazione utente con design elegante e rilassante</li>
+              <li>Bottom Tab Navigation con 4 sezioni principali</li>
+              <li>UI/UX zen con palette viola-lavanda (#8B7AB8)</li>
             </ul>
           </div>
         </div>
@@ -431,7 +549,7 @@
         </a>
       </div>
       <div class="footer-name">Carlotta Armenise</div>
-      <div class="footer-copy">© 2026 Tutti i diritti riservati – Made with ❤️</div>
+      <div class="footer-copy">© 2026 Tutti i diritti riservati</div>
     </div>
   </footer>
 
